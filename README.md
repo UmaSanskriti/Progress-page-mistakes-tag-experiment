@@ -47,6 +47,8 @@ uvicorn backend.app.main:app --reload
 
 Visit `http://127.0.0.1:8000/` to view the dashboard. The FastAPI docs (including the `/subtopics` schema) are available at `http://127.0.0.1:8000/docs`.
 
+> **GitHub Pages tip:** When you host `frontend/index.html` from a static provider (e.g. Pages), use the **API base URL** field in the dashboard to point at your running FastAPI backend (such as `http://localhost:8000`). The value is stored in `localStorage` so you only need to set it once per browser.
+
 ### 4. Run the automated tests
 
 ```bash

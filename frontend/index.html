@@ -162,7 +162,20 @@
           <option value="desc">Descending</option>
         </select>
       </label>
+      <label>
+        API base URL
+        <input
+          id="api-base"
+          type="url"
+          inputmode="url"
+          placeholder="https://your-backend.example.com"
+          aria-describedby="api-base-help"
+        />
+      </label>
     </section>
+    <p id="api-base-help" style="margin-top: -0.75rem; color: #52606d; font-size: 0.85rem">
+      Leave blank to use this site's origin. When hosting the dashboard on GitHub Pages, set this to your running FastAPI backend (e.g. <code>http://localhost:8000</code>).
+    </p>
 
     <table aria-describedby="status">
       <thead>
@@ -183,9 +196,22 @@
       const subtopicFilter = document.getElementById("subtopic-filter");
       const sortBy = document.getElementById("sort-by");
       const sortDir = document.getElementById("sort-dir");
+      const apiBaseInput = document.getElementById("api-base");
       const resultsBody = document.getElementById("results");
 
+      const storedApiBase = window.localStorage.getItem("mistakeTagsApiBase");
+      if (storedApiBase) {
+        apiBaseInput.value = storedApiBase;
+      }
+
       async function loadData() {
+        const inputValue = apiBaseInput.value.trim();
+        const apiBase = (inputValue || window.location.origin).replace(/\/+$/, "");
+        if (inputValue) {
+          window.localStorage.setItem("mistakeTagsApiBase", inputValue);
+        } else {
+          window.localStorage.removeItem("mistakeTagsApiBase");
+        }
         const params = new URLSearchParams();
         if (tagFilter.value) params.set("tag", tagFilter.value);
         if (subtopicFilter.value)
@@ -197,7 +223,7 @@
         resultsBody.innerHTML = "";
 
         try {
-          const response = await fetch(`/subtopics?${params.toString()}`);
+          const response = await fetch(`${apiBase}/subtopics?${params.toString()}`);
           if (!response.ok) {
             throw new Error(`Request failed with status ${response.status}`);
           }
@@ -212,7 +238,7 @@
           renderTable(data);
         } catch (error) {
           console.error(error);
-          statusEl.textContent = `Unable to load data: ${error.message}`;
+          statusEl.textContent = `Unable to load data from ${apiBase}/subtopics: ${error.message}`;
         }
       }
 
@@ -255,6 +281,17 @@
       sortBy.addEventListener("change", loadData);
       sortDir.addEventListener("change", loadData);
       subtopicFilter.addEventListener("input", debounce(loadData, 300));
+      apiBaseInput.addEventListener("change", () => {
+        window.localStorage.setItem("mistakeTagsApiBase", apiBaseInput.value.trim());
+        loadData();
+      });
+      apiBaseInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          apiBaseInput.blur();
+          loadData();
+        }
+      });
 
       function debounce(callback, delay = 250) {
         let timeoutId;
