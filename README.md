@@ -17,6 +17,8 @@ backend/
   scripts/seed.py     # Convenience script for ingesting the dataset
 frontend/
   index.html          # Static dashboard consuming the API
+docs/
+  index.html          # Copy of the dashboard used for GitHub Pages hosting
 Dataset - Progress page test - Sheet1.csv
 README.md
 ```
@@ -47,7 +49,19 @@ uvicorn backend.app.main:app --reload
 
 Visit `http://127.0.0.1:8000/` to view the dashboard. The FastAPI docs (including the `/subtopics` schema) are available at `http://127.0.0.1:8000/docs`.
 
-> **GitHub Pages tip:** When you host `frontend/index.html` from a static provider (e.g. Pages), use the **API base URL** field in the dashboard to point at your running FastAPI backend (such as `http://localhost:8000`). The value is stored in `localStorage` so you only need to set it once per browser.
+### Hosting the dashboard on GitHub Pages
+
+1. Keep the `docs/index.html` file in sync with the frontend source by running:
+
+   ```bash
+   python scripts/sync_frontend.py
+   ```
+
+2. Commit and push the generated `docs/index.html`.
+
+3. In your GitHub repository, open **Settings → Pages**, choose **Deploy from a branch**, and select the `main` branch with the `/docs` folder. Save the configuration to enable Pages.
+
+4. GitHub will publish the site at `https://<your-username>.github.io/<repository>/`. Load that URL, set the **API base URL** field to where your FastAPI backend is running (for example `https://your-api.example.com` or `http://localhost:8000`), and the preference will be remembered in `localStorage`.
 
 ### 4. Run the automated tests
 
