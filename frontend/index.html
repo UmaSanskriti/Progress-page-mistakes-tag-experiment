@@ -3,105 +3,165 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Subtopic Mistake Tags</title>
+    <title>Subtopic Mistake Tags – Three Student Sample</title>
     <style>
       :root {
-        font-family: Arial, sans-serif;
-        color: #1f2933;
-        background-color: #f8fafc;
+        color-scheme: light;
+        font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+        background: #f8fafc;
+        color: #0f172a;
       }
 
       body {
         margin: 0;
-        padding: 2rem;
-        background-color: inherit;
+        padding: 2.5rem clamp(1rem, 3vw, 3rem);
+        background: inherit;
+      }
+
+      header {
+        max-width: 960px;
+        margin: 0 auto 2rem;
+        text-align: center;
       }
 
       h1 {
-        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
       }
 
-      .controls {
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        margin-bottom: 1.5rem;
-      }
-
-      label {
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        color: #52606d;
-      }
-
-      select,
-      input {
-        width: 100%;
-        padding: 0.5rem 0.75rem;
-        border-radius: 0.5rem;
-        border: 1px solid #cbd2d9;
+      header p {
+        margin: 0.35rem 0;
+        color: #475569;
         font-size: 1rem;
-        margin-top: 0.35rem;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto 4rem;
+        display: grid;
+        gap: 1.75rem;
+      }
+
+      article {
+        background: #ffffff;
+        border-radius: 1rem;
+        box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+        padding: clamp(1.25rem, 3vw, 2rem);
+      }
+
+      article h2 {
+        margin-top: 0;
+        margin-bottom: 0.25rem;
+        font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+      }
+
+      .subheading {
+        margin: 0;
+        color: #64748b;
+        font-size: 0.95rem;
+      }
+
+      .metric {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: #e2e8f0;
+        color: #334155;
+        border-radius: 999px;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.85rem;
+        margin: 0.75rem 0 1.25rem;
       }
 
       table {
         width: 100%;
         border-collapse: collapse;
-        background: #fff;
-        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+        margin-bottom: 1.25rem;
       }
 
       thead {
-        background: #e4ebf5;
+        background: #eff6ff;
       }
 
       th,
       td {
-        padding: 0.75rem 1rem;
+        padding: 0.6rem 0.75rem;
         text-align: left;
-        border-bottom: 1px solid #d2ddec;
+        font-size: 0.95rem;
+        border-bottom: 1px solid #e2e8f0;
       }
 
       th {
-        font-size: 0.9rem;
         text-transform: uppercase;
-        color: #334155;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.04em;
+        font-size: 0.75rem;
+        color: #475569;
       }
 
-      tbody tr:hover {
-        background-color: #f1f5f9;
+      tbody tr:last-child td {
+        border-bottom: none;
       }
 
       .tag-pill {
-        display: inline-block;
-        padding: 0.25rem 0.75rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: rgba(59, 130, 246, 0.12);
+        color: #1d4ed8;
         border-radius: 999px;
+        padding: 0.2rem 0.65rem;
         font-size: 0.85rem;
-        background: #eef2ff;
-        color: #4338ca;
       }
 
-      .tag-group {
+      .student-breakdown {
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .student-breakdown h3 {
+        margin: 0;
+        font-size: 1rem;
+        color: #334155;
+      }
+
+      .student-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        align-items: flex-start;
+        background: #f1f5f9;
+        border-radius: 0.75rem;
+        padding: 0.75rem 0.85rem;
+        font-size: 0.9rem;
+      }
+
+      .student-label {
+        font-weight: 600;
+        color: #1e293b;
+      }
+
+      .tag-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.35rem;
+        gap: 0.4rem;
       }
 
-      #status {
-        margin-bottom: 1rem;
-        font-size: 0.95rem;
-        color: #52606d;
+      .tag-empty {
+        color: #64748b;
+        font-style: italic;
       }
 
-      .hidden {
-        display: none;
+      footer {
+        max-width: 960px;
+        margin: 3rem auto 0;
+        color: #475569;
+        font-size: 0.85rem;
+        text-align: center;
       }
 
       @media (max-width: 640px) {
         body {
-          padding: 1rem;
+          padding: 1.5rem 1rem 2.5rem;
         }
 
         table,
@@ -113,346 +173,199 @@
           display: block;
         }
 
-        thead tr {
+        thead {
           display: none;
         }
 
         tbody tr {
-          margin-bottom: 1rem;
-          box-shadow: 0 2px 4px rgba(15, 23, 42, 0.1);
+          border: 1px solid #e2e8f0;
+          border-radius: 0.75rem;
+          padding: 0.75rem;
+          margin-bottom: 0.75rem;
+          background: #f8fafc;
         }
 
         tbody td {
           border: none;
-          position: relative;
-          padding-left: 50%;
+          padding: 0.25rem 0;
         }
 
         tbody td::before {
-          position: absolute;
-          left: 1rem;
-          width: 45%;
-          white-space: nowrap;
-          font-weight: bold;
-          content: attr(data-label);
+          content: attr(data-label) ": ";
+          font-weight: 600;
+          color: #475569;
         }
       }
     </style>
   </head>
   <body>
-    <h1>Subtopic Mistake Tag Dashboard</h1>
-    <p id="status">Loading data…</p>
-    <section class="controls">
-      <label>
-        View
-        <select id="view-mode">
-          <option value="subtopics">Subtopic summary</option>
-          <option value="students">Student breakdown</option>
-        </select>
-      </label>
-      <label>
-        Filter by Tag
-        <select id="tag-filter">
-          <option value="">All tags</option>
-        </select>
-      </label>
-      <label>
-        Filter by Subtopic
-        <input
-          id="subtopic-filter"
-          type="search"
-          placeholder="e.g. magnets"
-        />
-      </label>
-      <label id="student-filter-wrapper" class="hidden">
-        Filter by Student ID
-        <input
-          id="student-filter"
-          type="search"
-          inputmode="numeric"
-          placeholder="e.g. 192153"
-        />
-      </label>
-      <label>
-        Sort by
-        <select id="sort-by">
-          <option value="subtopic">Subtopic</option>
-          <option value="tag">Tag</option>
-          <option value="count">Count</option>
-        </select>
-      </label>
-      <label>
-        Sort direction
-        <select id="sort-dir">
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-        </select>
-      </label>
-      <label>
-        API base URL
-        <input
-          id="api-base"
-          type="url"
-          inputmode="url"
-          placeholder="https://your-backend.example.com"
-          aria-describedby="api-base-help"
-        />
-      </label>
-    </section>
-    <p id="api-base-help" style="margin-top: -0.75rem; color: #52606d; font-size: 0.85rem">
-      Leave blank to use this site's origin. When hosting the dashboard on GitHub Pages, set this to your running FastAPI backend (e.g. <code>http://localhost:8000</code>).
-    </p>
-
-    <table aria-describedby="status">
-      <thead>
-        <tr id="table-head"></tr>
-      </thead>
-      <tbody id="results"></tbody>
-    </table>
-
+    <header>
+      <h1>Subtopic Mistake Tags</h1>
+      <p id="student-summary">Loading student information…</p>
+      <p id="dataset-note">Analysing incorrect attempts only.</p>
+    </header>
+    <main id="content" aria-live="polite"></main>
+    <footer>
+      The mistake tags reuse the existing taxonomy from <code>backend/app/ingest.py</code>.
+    </footer>
+    <script src="data/three_student_mistake_summary.js"></script>
     <script>
-      const statusEl = document.getElementById("status");
-      const tagFilter = document.getElementById("tag-filter");
-      const subtopicFilter = document.getElementById("subtopic-filter");
-      const studentFilter = document.getElementById("student-filter");
-      const sortBy = document.getElementById("sort-by");
-      const sortDir = document.getElementById("sort-dir");
-      const viewSelect = document.getElementById("view-mode");
-      const apiBaseInput = document.getElementById("api-base");
-      const studentFilterWrapper = document.getElementById("student-filter-wrapper");
-      const resultsBody = document.getElementById("results");
-      const tableHeadRow = document.getElementById("table-head");
-
-      const storedApiBase = window.localStorage.getItem("mistakeTagsApiBase");
-      if (storedApiBase) {
-        apiBaseInput.value = storedApiBase;
-      }
-
-      const SORT_OPTIONS = {
-        subtopics: [
-          { value: "subtopic", label: "Subtopic" },
-          { value: "tag", label: "Tag" },
-          { value: "count", label: "Attempts" },
-        ],
-        students: [
-          { value: "student", label: "Student ID" },
-          { value: "subtopic", label: "Subtopic" },
-          { value: "tag_count", label: "Tag count" },
-          { value: "attempts", label: "Attempt count" },
-        ],
-      };
-
-      function configureSortOptions(view) {
-        const options = SORT_OPTIONS[view] || [];
-        const currentValue = sortBy.value;
-        sortBy.innerHTML = options
-          .map((option) => `<option value="${option.value}">${option.label}</option>`)
-          .join("");
-        const defaultValue = options.length ? options[0].value : "";
-        if (options.some((option) => option.value === currentValue)) {
-          sortBy.value = currentValue;
-        } else {
-          sortBy.value = defaultValue;
-        }
-      }
-
-      function updateControlsForView(view) {
-        if (view === "students") {
-          studentFilterWrapper.classList.remove("hidden");
-        } else {
-          studentFilterWrapper.classList.add("hidden");
-          studentFilter.value = "";
-        }
-        configureSortOptions(view);
-      }
-
       async function loadData() {
-        const inputValue = apiBaseInput.value.trim();
-        const apiBase = (inputValue || window.location.origin).replace(/\/+$/, "");
-        if (inputValue) {
-          window.localStorage.setItem("mistakeTagsApiBase", inputValue);
-        } else {
-          window.localStorage.removeItem("mistakeTagsApiBase");
+        if (window.THREE_STUDENT_MISTAKE_SUMMARY) {
+          return window.THREE_STUDENT_MISTAKE_SUMMARY;
         }
-        const view = viewSelect.value;
-        const params = new URLSearchParams();
-        if (tagFilter.value) params.set("tag", tagFilter.value);
-        if (subtopicFilter.value)
-          params.set("subtopic", subtopicFilter.value.trim());
-        if (view === "students") {
-          const studentValue = studentFilter.value.trim();
-          if (studentValue) params.set("student_id", studentValue);
-        }
-        params.set("sort_by", sortBy.value);
-        params.set("sort_dir", sortDir.value);
 
-        statusEl.textContent = "Loading data…";
-        resultsBody.innerHTML = "";
+        const response = await fetch("./data/three_student_mistake_summary.json", {
+          cache: "no-store",
+        });
+        if (!response.ok) {
+          throw new Error(`Failed to load summary: ${response.status}`);
+        }
+        return response.json();
+      }
+
+      function createTagList(tagCounts) {
+        const container = document.createElement("div");
+        container.className = "tag-list";
+
+        if (!tagCounts || tagCounts.length === 0) {
+          const empty = document.createElement("span");
+          empty.className = "tag-empty";
+          empty.textContent = "No incorrect attempts recorded.";
+          container.appendChild(empty);
+          return container;
+        }
+
+        tagCounts
+          .slice()
+          .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag))
+          .forEach((entry) => {
+            const tag = document.createElement("span");
+            tag.className = "tag-pill";
+            tag.textContent = `${entry.tag.replaceAll("_", " ")} (${entry.count})`;
+            container.appendChild(tag);
+          });
+
+        return container;
+      }
+
+      function renderSubtopic(container, subtopic) {
+        const article = document.createElement("article");
+
+        const title = document.createElement("h2");
+        title.textContent = subtopic.subtopic;
+        article.appendChild(title);
+
+        const subheading = document.createElement("p");
+        subheading.className = "subheading";
+        subheading.textContent = `${subtopic.topic} • ${subtopic.subject}`;
+        article.appendChild(subheading);
+
+        const metric = document.createElement("div");
+        metric.className = "metric";
+        metric.textContent = `Incorrect attempts analysed: ${subtopic.attempts_considered}`;
+        article.appendChild(metric);
+
+        const table = document.createElement("table");
+        const thead = document.createElement("thead");
+        thead.innerHTML = "<tr><th>Mistake tag</th><th>Frequency</th></tr>";
+        table.appendChild(thead);
+
+        const tbody = document.createElement("tbody");
+        if (subtopic.tag_counts.length === 0) {
+          const emptyRow = document.createElement("tr");
+          const emptyCell = document.createElement("td");
+          emptyCell.colSpan = 2;
+          emptyCell.textContent = "No mistake tags recorded.";
+          emptyRow.appendChild(emptyCell);
+          tbody.appendChild(emptyRow);
+        } else {
+          subtopic.tag_counts
+            .slice()
+            .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag))
+            .forEach((entry) => {
+              const row = document.createElement("tr");
+
+              const tagCell = document.createElement("td");
+              tagCell.dataset.label = "Mistake tag";
+              const tagSpan = document.createElement("span");
+              tagSpan.className = "tag-pill";
+              tagSpan.textContent = entry.tag.replaceAll("_", " ");
+              tagCell.appendChild(tagSpan);
+
+              const countCell = document.createElement("td");
+              countCell.dataset.label = "Frequency";
+              countCell.textContent = entry.count;
+
+              row.appendChild(tagCell);
+              row.appendChild(countCell);
+              tbody.appendChild(row);
+            });
+        }
+        table.appendChild(tbody);
+        article.appendChild(table);
+
+        const studentSection = document.createElement("section");
+        studentSection.className = "student-breakdown";
+
+        const studentHeading = document.createElement("h3");
+        studentHeading.textContent = "Student mistake tag breakdown";
+        studentSection.appendChild(studentHeading);
+
+        subtopic.students.forEach((student) => {
+          const row = document.createElement("div");
+          row.className = "student-row";
+          const idSpan = document.createElement("span");
+          idSpan.className = "student-label";
+          idSpan.textContent = `Student ${student.student_id}`;
+          row.appendChild(idSpan);
+
+          row.appendChild(createTagList(student.tag_counts));
+
+          studentSection.appendChild(row);
+        });
+
+        article.appendChild(studentSection);
+        container.appendChild(article);
+      }
+
+      async function init() {
+        const main = document.getElementById("content");
+        const studentSummary = document.getElementById("student-summary");
+        const datasetNote = document.getElementById("dataset-note");
 
         try {
-          const endpoint = view === "students" ? "student_subtopics" : "subtopics";
-          const response = await fetch(`${apiBase}/${endpoint}?${params.toString()}`);
-          if (!response.ok) {
-            throw new Error(`Request failed with status ${response.status}`);
-          }
-          const data = await response.json();
-          const viewLabel = view === "students" ? "student-subtopic" : "subtopic-tag";
-          statusEl.textContent = `Showing ${data.length} ${viewLabel} rows`;
+          const data = await loadData();
+          studentSummary.textContent = `Selected students: ${data.selected_students
+            .map((id) => `#${id}`)
+            .join(", ")}`;
 
-          updateTagFilterOptions(data, view);
-          renderTable(data, view);
+          const excluded = data.students_present.filter(
+            (id) => !data.selected_students.includes(id)
+          );
+          if (excluded.length > 0) {
+            datasetNote.textContent = `Analysing incorrect attempts only. ${excluded.length} other students were ignored.`;
+          }
+
+          if (!data.subtopics || data.subtopics.length === 0) {
+            const emptyState = document.createElement("p");
+            emptyState.textContent = "No mistake tag data available for the selected students.";
+            main.appendChild(emptyState);
+            return;
+          }
+
+          data.subtopics.forEach((subtopic) => renderSubtopic(main, subtopic));
         } catch (error) {
+          studentSummary.textContent = "Unable to load student information.";
+          datasetNote.textContent = error instanceof Error ? error.message : String(error);
+          const message = document.createElement("p");
+          message.textContent = "Please verify that the JSON data file is available.";
+          main.appendChild(message);
           console.error(error);
-          const endpoint = view === "students" ? "student_subtopics" : "subtopics";
-          statusEl.textContent = `Unable to load data from ${apiBase}/${endpoint}: ${error.message}`;
         }
       }
 
-      function updateTagFilterOptions(data, view) {
-        const previousValue = tagFilter.value;
-        const tags = new Set();
-        if (view === "students") {
-          for (const row of data) {
-            for (const tag of row.tags || []) {
-              tags.add(tag);
-            }
-          }
-        } else {
-          for (const row of data) {
-            if (row.tag) {
-              tags.add(row.tag);
-            }
-          }
-        }
-
-        const sortedTags = Array.from(tags).sort();
-        tagFilter.innerHTML = '<option value="">All tags</option>';
-        for (const tag of sortedTags) {
-          const option = document.createElement("option");
-          option.value = tag;
-          option.textContent = tag.replace(/_/g, " ");
-          tagFilter.appendChild(option);
-        }
-
-        if (previousValue && tags.has(previousValue)) {
-          tagFilter.value = previousValue;
-        } else {
-          tagFilter.value = "";
-        }
-      }
-
-      function setTableColumns(columns) {
-        tableHeadRow.innerHTML = columns
-          .map((column) => `<th scope="col">${column}</th>`)
-          .join("");
-      }
-
-      function renderSubtopicTable(data) {
-        setTableColumns(["Subject", "Topic", "Subtopic", "Tag", "Attempts"]);
-        if (!data.length) {
-          resultsBody.innerHTML = `<tr><td colspan="5">No results found.</td></tr>`;
-          return;
-        }
-
-        const rows = data
-          .map(
-            (row) => `
-            <tr>
-              <td data-label="Subject">${row.subject}</td>
-              <td data-label="Topic">${row.topic}</td>
-              <td data-label="Subtopic">${row.subtopic}</td>
-              <td data-label="Tag"><span class="tag-pill">${row.tag.replace(
-                /_/g,
-                " "
-              )}</span></td>
-              <td data-label="Attempts">${row.count}</td>
-            </tr>`
-          )
-          .join("");
-
-        resultsBody.innerHTML = rows;
-      }
-
-      function renderStudentTable(data) {
-        setTableColumns([
-          "Student ID",
-          "Subject",
-          "Topic",
-          "Subtopic",
-          "Tags",
-          "Attempts",
-        ]);
-        if (!data.length) {
-          resultsBody.innerHTML = `<tr><td colspan="6">No results found.</td></tr>`;
-          return;
-        }
-
-        const rows = data
-          .map((row) => {
-            const tagsMarkup = (row.tags || [])
-              .map(
-                (tag) =>
-                  `<span class="tag-pill">${String(tag).replace(/_/g, " ")}</span>`
-              )
-              .join(" ");
-            return `
-            <tr>
-              <td data-label="Student ID">${row.student_id}</td>
-              <td data-label="Subject">${row.subject}</td>
-              <td data-label="Topic">${row.topic}</td>
-              <td data-label="Subtopic">${row.subtopic}</td>
-              <td data-label="Tags">
-                <div class="tag-group">${tagsMarkup || "—"}</div>
-              </td>
-              <td data-label="Attempts">${row.attempt_count}</td>
-            </tr>`;
-          })
-          .join("");
-
-        resultsBody.innerHTML = rows;
-      }
-
-      function renderTable(data, view) {
-        if (view === "students") {
-          renderStudentTable(data);
-        } else {
-          renderSubtopicTable(data);
-        }
-      }
-
-      tagFilter.addEventListener("change", loadData);
-      sortBy.addEventListener("change", loadData);
-      sortDir.addEventListener("change", loadData);
-      const debouncedLoadData = debounce(loadData, 300);
-      subtopicFilter.addEventListener("input", debouncedLoadData);
-      studentFilter.addEventListener("input", debouncedLoadData);
-      viewSelect.addEventListener("change", () => {
-        updateControlsForView(viewSelect.value);
-        tagFilter.value = "";
-        loadData();
-      });
-      apiBaseInput.addEventListener("change", () => {
-        window.localStorage.setItem("mistakeTagsApiBase", apiBaseInput.value.trim());
-        loadData();
-      });
-      apiBaseInput.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-          event.preventDefault();
-          apiBaseInput.blur();
-          loadData();
-        }
-      });
-
-      function debounce(callback, delay = 250) {
-        let timeoutId;
-        return (...args) => {
-          window.clearTimeout(timeoutId);
-          timeoutId = window.setTimeout(() => callback.apply(this, args), delay);
-        };
-      }
-
-      updateControlsForView(viewSelect.value);
-      loadData();
+      init();
     </script>
   </body>
 </html>
