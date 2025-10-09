@@ -1,6 +1,6 @@
 # Progress Page Mistake Tag Experiment
 
-This repository demonstrates a lightweight analytics stack for surfacing mistake-tag insights from student assessment attempts. It consists of a FastAPI backend backed by SQLite, a seed/ingestion workflow for the provided CSV, and a static frontend dashboard that consumes an aggregated `/subtopics` endpoint.
+This repository demonstrates a lightweight analytics stack for surfacing mistake-tag insights from student assessment attempts. It consists of a FastAPI backend backed by SQLite, a seed/ingestion workflow for the provided CSV, and a static frontend dashboard that surfaces both subtopic-level aggregates (`/subtopics`) and per-student breakdowns (`/student_subtopics`).
 
 ## Project structure
 
@@ -47,7 +47,7 @@ By default the data is loaded into `backend/data/app.db`. You can override the l
 uvicorn backend.app.main:app --reload
 ```
 
-Visit `http://127.0.0.1:8000/` to view the dashboard. The FastAPI docs (including the `/subtopics` schema) are available at `http://127.0.0.1:8000/docs`.
+Visit `http://127.0.0.1:8000/` to view the dashboard. Use the **View** selector to switch between the subtopic summary and student-level tables. The FastAPI docs (including schemas for `/subtopics` and `/student_subtopics`) are available at `http://127.0.0.1:8000/docs`.
 
 ### Hosting the dashboard on GitHub Pages
 
@@ -97,7 +97,9 @@ Every CSV row becomes a single `attempt` joined to a `student`, `subtopic`, and 
 
 Multiple tags can be attached to a single attempt (e.g., a blank answer that scores zero will carry both `blank_response` and `conceptual_gap`).
 
-## `/subtopics` endpoint
+## API endpoints
+
+### `/subtopics`
 
 `GET /subtopics` returns aggregated counts of attempts per subtopic/tag combination. Query parameters allow lightweight analytics:
 
@@ -106,7 +108,17 @@ Multiple tags can be attached to a single attempt (e.g., a blank answer that sco
 - `sort_by` – one of `subtopic`, `tag`, or `count`.
 - `sort_dir` – `asc` or `desc`.
 
-The frontend dashboard uses these parameters to provide filtering and sorting controls directly in the UI.
+### `/student_subtopics`
+
+`GET /student_subtopics` returns one row per `(student_id, subtopic)` pair alongside the union of mistake tags applied to that student's attempts. Supported query parameters mirror the dashboard controls:
+
+- `tag` – only return rows that include the specified tag.
+- `subtopic` – case-insensitive substring filter on the subtopic description.
+- `student_id` – restrict results to a specific learner.
+- `sort_by` – one of `student`, `subtopic`, `tag_count`, or `attempts`.
+- `sort_dir` – `asc` or `desc`.
+
+The frontend dashboard uses these parameters to provide filtering and sorting controls directly in the UI for both views.
 
 ## Extending the taxonomy
 

@@ -83,10 +83,20 @@
         color: #4338ca;
       }
 
+      .tag-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+
       #status {
         margin-bottom: 1rem;
         font-size: 0.95rem;
         color: #52606d;
+      }
+
+      .hidden {
+        display: none;
       }
 
       @media (max-width: 640px) {
@@ -134,6 +144,13 @@
     <p id="status">Loading data…</p>
     <section class="controls">
       <label>
+        View
+        <select id="view-mode">
+          <option value="subtopics">Subtopic summary</option>
+          <option value="students">Student breakdown</option>
+        </select>
+      </label>
+      <label>
         Filter by Tag
         <select id="tag-filter">
           <option value="">All tags</option>
@@ -145,6 +162,15 @@
           id="subtopic-filter"
           type="search"
           placeholder="e.g. magnets"
+        />
+      </label>
+      <label id="student-filter-wrapper" class="hidden">
+        Filter by Student ID
+        <input
+          id="student-filter"
+          type="search"
+          inputmode="numeric"
+          placeholder="e.g. 192153"
         />
       </label>
       <label>
@@ -179,13 +205,7 @@
 
     <table aria-describedby="status">
       <thead>
-        <tr>
-          <th>Subject</th>
-          <th>Topic</th>
-          <th>Subtopic</th>
-          <th>Tag</th>
-          <th>Attempts</th>
-        </tr>
+        <tr id="table-head"></tr>
       </thead>
       <tbody id="results"></tbody>
     </table>
@@ -194,14 +214,56 @@
       const statusEl = document.getElementById("status");
       const tagFilter = document.getElementById("tag-filter");
       const subtopicFilter = document.getElementById("subtopic-filter");
+      const studentFilter = document.getElementById("student-filter");
       const sortBy = document.getElementById("sort-by");
       const sortDir = document.getElementById("sort-dir");
+      const viewSelect = document.getElementById("view-mode");
       const apiBaseInput = document.getElementById("api-base");
+      const studentFilterWrapper = document.getElementById("student-filter-wrapper");
       const resultsBody = document.getElementById("results");
+      const tableHeadRow = document.getElementById("table-head");
 
       const storedApiBase = window.localStorage.getItem("mistakeTagsApiBase");
       if (storedApiBase) {
         apiBaseInput.value = storedApiBase;
+      }
+
+      const SORT_OPTIONS = {
+        subtopics: [
+          { value: "subtopic", label: "Subtopic" },
+          { value: "tag", label: "Tag" },
+          { value: "count", label: "Attempts" },
+        ],
+        students: [
+          { value: "student", label: "Student ID" },
+          { value: "subtopic", label: "Subtopic" },
+          { value: "tag_count", label: "Tag count" },
+          { value: "attempts", label: "Attempt count" },
+        ],
+      };
+
+      function configureSortOptions(view) {
+        const options = SORT_OPTIONS[view] || [];
+        const currentValue = sortBy.value;
+        sortBy.innerHTML = options
+          .map((option) => `<option value="${option.value}">${option.label}</option>`)
+          .join("");
+        const defaultValue = options.length ? options[0].value : "";
+        if (options.some((option) => option.value === currentValue)) {
+          sortBy.value = currentValue;
+        } else {
+          sortBy.value = defaultValue;
+        }
+      }
+
+      function updateControlsForView(view) {
+        if (view === "students") {
+          studentFilterWrapper.classList.remove("hidden");
+        } else {
+          studentFilterWrapper.classList.add("hidden");
+          studentFilter.value = "";
+        }
+        configureSortOptions(view);
       }
 
       async function loadData() {
@@ -212,10 +274,15 @@
         } else {
           window.localStorage.removeItem("mistakeTagsApiBase");
         }
+        const view = viewSelect.value;
         const params = new URLSearchParams();
         if (tagFilter.value) params.set("tag", tagFilter.value);
         if (subtopicFilter.value)
           params.set("subtopic", subtopicFilter.value.trim());
+        if (view === "students") {
+          const studentValue = studentFilter.value.trim();
+          if (studentValue) params.set("student_id", studentValue);
+        }
         params.set("sort_by", sortBy.value);
         params.set("sort_dir", sortDir.value);
 
@@ -223,36 +290,65 @@
         resultsBody.innerHTML = "";
 
         try {
-          const response = await fetch(`${apiBase}/subtopics?${params.toString()}`);
+          const endpoint = view === "students" ? "student_subtopics" : "subtopics";
+          const response = await fetch(`${apiBase}/${endpoint}?${params.toString()}`);
           if (!response.ok) {
             throw new Error(`Request failed with status ${response.status}`);
           }
           const data = await response.json();
-          statusEl.textContent = `Showing ${data.length} rows`;
+          const viewLabel = view === "students" ? "student-subtopic" : "subtopic-tag";
+          statusEl.textContent = `Showing ${data.length} ${viewLabel} rows`;
 
-          if (!tagFilter.dataset.initialised) {
-            populateTagFilter(data);
-            tagFilter.dataset.initialised = "true";
-          }
-
-          renderTable(data);
+          updateTagFilterOptions(data, view);
+          renderTable(data, view);
         } catch (error) {
           console.error(error);
-          statusEl.textContent = `Unable to load data from ${apiBase}/subtopics: ${error.message}`;
+          const endpoint = view === "students" ? "student_subtopics" : "subtopics";
+          statusEl.textContent = `Unable to load data from ${apiBase}/${endpoint}: ${error.message}`;
         }
       }
 
-      function populateTagFilter(data) {
-        const uniqueTags = Array.from(new Set(data.map((item) => item.tag))).sort();
-        for (const tag of uniqueTags) {
+      function updateTagFilterOptions(data, view) {
+        const previousValue = tagFilter.value;
+        const tags = new Set();
+        if (view === "students") {
+          for (const row of data) {
+            for (const tag of row.tags || []) {
+              tags.add(tag);
+            }
+          }
+        } else {
+          for (const row of data) {
+            if (row.tag) {
+              tags.add(row.tag);
+            }
+          }
+        }
+
+        const sortedTags = Array.from(tags).sort();
+        tagFilter.innerHTML = '<option value="">All tags</option>';
+        for (const tag of sortedTags) {
           const option = document.createElement("option");
           option.value = tag;
           option.textContent = tag.replace(/_/g, " ");
           tagFilter.appendChild(option);
         }
+
+        if (previousValue && tags.has(previousValue)) {
+          tagFilter.value = previousValue;
+        } else {
+          tagFilter.value = "";
+        }
       }
 
-      function renderTable(data) {
+      function setTableColumns(columns) {
+        tableHeadRow.innerHTML = columns
+          .map((column) => `<th scope="col">${column}</th>`)
+          .join("");
+      }
+
+      function renderSubtopicTable(data) {
+        setTableColumns(["Subject", "Topic", "Subtopic", "Tag", "Attempts"]);
         if (!data.length) {
           resultsBody.innerHTML = `<tr><td colspan="5">No results found.</td></tr>`;
           return;
@@ -277,10 +373,64 @@
         resultsBody.innerHTML = rows;
       }
 
+      function renderStudentTable(data) {
+        setTableColumns([
+          "Student ID",
+          "Subject",
+          "Topic",
+          "Subtopic",
+          "Tags",
+          "Attempts",
+        ]);
+        if (!data.length) {
+          resultsBody.innerHTML = `<tr><td colspan="6">No results found.</td></tr>`;
+          return;
+        }
+
+        const rows = data
+          .map((row) => {
+            const tagsMarkup = (row.tags || [])
+              .map(
+                (tag) =>
+                  `<span class="tag-pill">${String(tag).replace(/_/g, " ")}</span>`
+              )
+              .join(" ");
+            return `
+            <tr>
+              <td data-label="Student ID">${row.student_id}</td>
+              <td data-label="Subject">${row.subject}</td>
+              <td data-label="Topic">${row.topic}</td>
+              <td data-label="Subtopic">${row.subtopic}</td>
+              <td data-label="Tags">
+                <div class="tag-group">${tagsMarkup || "—"}</div>
+              </td>
+              <td data-label="Attempts">${row.attempt_count}</td>
+            </tr>`;
+          })
+          .join("");
+
+        resultsBody.innerHTML = rows;
+      }
+
+      function renderTable(data, view) {
+        if (view === "students") {
+          renderStudentTable(data);
+        } else {
+          renderSubtopicTable(data);
+        }
+      }
+
       tagFilter.addEventListener("change", loadData);
       sortBy.addEventListener("change", loadData);
       sortDir.addEventListener("change", loadData);
-      subtopicFilter.addEventListener("input", debounce(loadData, 300));
+      const debouncedLoadData = debounce(loadData, 300);
+      subtopicFilter.addEventListener("input", debouncedLoadData);
+      studentFilter.addEventListener("input", debouncedLoadData);
+      viewSelect.addEventListener("change", () => {
+        updateControlsForView(viewSelect.value);
+        tagFilter.value = "";
+        loadData();
+      });
       apiBaseInput.addEventListener("change", () => {
         window.localStorage.setItem("mistakeTagsApiBase", apiBaseInput.value.trim());
         loadData();
@@ -301,6 +451,7 @@
         };
       }
 
+      updateControlsForView(viewSelect.value);
       loadData();
     </script>
   </body>

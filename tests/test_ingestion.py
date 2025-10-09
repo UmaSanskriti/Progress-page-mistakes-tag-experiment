@@ -46,3 +46,34 @@ def test_ingest_populates_expected_counts(tmp_path):
         # Ensure every expected combination exists in the database
         db_pairs = {(row[0], row[1]) for row in rows}
         assert db_pairs == set(expected_counts.keys())
+
+
+def test_student_subtopic_tags_match_expected(tmp_path):
+    db_url = f"sqlite:///{tmp_path / 'test.db'}"
+
+    ingest_csv(DATASET_PATH, database_url=db_url)
+
+    engine = create_engine(db_url, future=True)
+    df = pd.read_csv(DATASET_PATH)
+
+    with Session(engine) as session:
+        expected: dict[tuple[int, str], set[str]] = {}
+        for record in df.to_dict("records"):
+            student_id = int(record["student_id"])
+            subtopic_name = str(record["description"])
+            key = (student_id, subtopic_name)
+            expected.setdefault(key, set()).update(derive_tags(record))
+
+        rows = list(
+            session.execute(
+                select(Attempt.student_id, Subtopic.name, MistakeTag.name)
+                .join(Subtopic, Attempt.subtopic_id == Subtopic.id)
+                .join(Attempt.tags)
+            )
+        )
+
+        actual: dict[tuple[int, str], set[str]] = {}
+        for student_id, subtopic_name, tag_name in rows:
+            actual.setdefault((student_id, subtopic_name), set()).add(tag_name)
+
+        assert actual == expected
