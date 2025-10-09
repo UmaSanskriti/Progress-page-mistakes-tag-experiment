@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subtopic Mistake Tags</title>
+    <style>
+      :root {
+        font-family: Arial, sans-serif;
+        color: #1f2933;
+        background-color: #f8fafc;
+      }
+
+      body {
+        margin: 0;
+        padding: 2rem;
+        background-color: inherit;
+      }
+
+      h1 {
+        margin-top: 0;
+      }
+
+      .controls {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #52606d;
+      }
+
+      select,
+      input {
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        border: 1px solid #cbd2d9;
+        font-size: 1rem;
+        margin-top: 0.35rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+      }
+
+      thead {
+        background: #e4ebf5;
+      }
+
+      th,
+      td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid #d2ddec;
+      }
+
+      th {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        color: #334155;
+        letter-spacing: 0.05em;
+      }
+
+      tbody tr:hover {
+        background-color: #f1f5f9;
+      }
+
+      .tag-pill {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        background: #eef2ff;
+        color: #4338ca;
+      }
+
+      .tag-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+
+      #status {
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+        color: #52606d;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 1rem;
+        }
+
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+          display: block;
+        }
+
+        thead tr {
+          display: none;
+        }
+
+        tbody tr {
+          margin-bottom: 1rem;
+          box-shadow: 0 2px 4px rgba(15, 23, 42, 0.1);
+        }
+
+        tbody td {
+          border: none;
+          position: relative;
+          padding-left: 50%;
+        }
+
+        tbody td::before {
+          position: absolute;
+          left: 1rem;
+          width: 45%;
+          white-space: nowrap;
+          font-weight: bold;
+          content: attr(data-label);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Subtopic Mistake Tag Dashboard</h1>
+    <p id="status">Loading data…</p>
+    <section class="controls">
+      <label>
+        View
+        <select id="view-mode">
+          <option value="subtopics">Subtopic summary</option>
+          <option value="students">Student breakdown</option>
+        </select>
+      </label>
+      <label>
+        Filter by Tag
+        <select id="tag-filter">
+          <option value="">All tags</option>
+        </select>
+      </label>
+      <label>
+        Filter by Subtopic
+        <input
+          id="subtopic-filter"
+          type="search"
+          placeholder="e.g. magnets"
+        />
+      </label>
+      <label id="student-filter-wrapper" class="hidden">
+        Filter by Student ID
+        <input
+          id="student-filter"
+          type="search"
+          inputmode="numeric"
+          placeholder="e.g. 192153"
+        />
+      </label>
+      <label>
+        Sort by
+        <select id="sort-by">
+          <option value="subtopic">Subtopic</option>
+          <option value="tag">Tag</option>
+          <option value="count">Count</option>
+        </select>
+      </label>
+      <label>
+        Sort direction
+        <select id="sort-dir">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </label>
+      <label>
+        API base URL
+        <input
+          id="api-base"
+          type="url"
+          inputmode="url"
+          placeholder="https://your-backend.example.com"
+          aria-describedby="api-base-help"
+        />
+      </label>
+    </section>
+    <p id="api-base-help" style="margin-top: -0.75rem; color: #52606d; font-size: 0.85rem">
+      Leave blank to use this site's origin. When hosting the dashboard on GitHub Pages, set this to your running FastAPI backend (e.g. <code>http://localhost:8000</code>).
+    </p>
+
+    <table aria-describedby="status">
+      <thead>
+        <tr id="table-head"></tr>
+      </thead>
+      <tbody id="results"></tbody>
+    </table>
+
+    <script>
+      const statusEl = document.getElementById("status");
+      const tagFilter = document.getElementById("tag-filter");
+      const subtopicFilter = document.getElementById("subtopic-filter");
+      const studentFilter = document.getElementById("student-filter");
+      const sortBy = document.getElementById("sort-by");
+      const sortDir = document.getElementById("sort-dir");
+      const viewSelect = document.getElementById("view-mode");
+      const apiBaseInput = document.getElementById("api-base");
+      const studentFilterWrapper = document.getElementById("student-filter-wrapper");
+      const resultsBody = document.getElementById("results");
+      const tableHeadRow = document.getElementById("table-head");
+
+      const storedApiBase = window.localStorage.getItem("mistakeTagsApiBase");
+      if (storedApiBase) {
+        apiBaseInput.value = storedApiBase;
+      }
+
+      const SORT_OPTIONS = {
+        subtopics: [
+          { value: "subtopic", label: "Subtopic" },
+          { value: "tag", label: "Tag" },
+          { value: "count", label: "Attempts" },
+        ],
+        students: [
+          { value: "student", label: "Student ID" },
+          { value: "subtopic", label: "Subtopic" },
+          { value: "tag_count", label: "Tag count" },
+          { value: "attempts", label: "Attempt count" },
+        ],
+      };
+
+      function configureSortOptions(view) {
+        const options = SORT_OPTIONS[view] || [];
+        const currentValue = sortBy.value;
+        sortBy.innerHTML = options
+          .map((option) => `<option value="${option.value}">${option.label}</option>`)
+          .join("");
+        const defaultValue = options.length ? options[0].value : "";
+        if (options.some((option) => option.value === currentValue)) {
+          sortBy.value = currentValue;
+        } else {
+          sortBy.value = defaultValue;
+        }
+      }
+
+      function updateControlsForView(view) {
+        if (view === "students") {
+          studentFilterWrapper.classList.remove("hidden");
+        } else {
+          studentFilterWrapper.classList.add("hidden");
+          studentFilter.value = "";
+        }
+        configureSortOptions(view);
+      }
+
+      async function loadData() {
+        const inputValue = apiBaseInput.value.trim();
+        const apiBase = (inputValue || window.location.origin).replace(/\/+$/, "");
+        if (inputValue) {
+          window.localStorage.setItem("mistakeTagsApiBase", inputValue);
+        } else {
+          window.localStorage.removeItem("mistakeTagsApiBase");
+        }
+        const view = viewSelect.value;
+        const params = new URLSearchParams();
+        if (tagFilter.value) params.set("tag", tagFilter.value);
+        if (subtopicFilter.value)
+          params.set("subtopic", subtopicFilter.value.trim());
+        if (view === "students") {
+          const studentValue = studentFilter.value.trim();
+          if (studentValue) params.set("student_id", studentValue);
+        }
+        params.set("sort_by", sortBy.value);
+        params.set("sort_dir", sortDir.value);
+
+        statusEl.textContent = "Loading data…";
+        resultsBody.innerHTML = "";
+
+        try {
+          const endpoint = view === "students" ? "student_subtopics" : "subtopics";
+          const response = await fetch(`${apiBase}/${endpoint}?${params.toString()}`);
+          if (!response.ok) {
+            throw new Error(`Request failed with status ${response.status}`);
+          }
+          const data = await response.json();
+          const viewLabel = view === "students" ? "student-subtopic" : "subtopic-tag";
+          statusEl.textContent = `Showing ${data.length} ${viewLabel} rows`;
+
+          updateTagFilterOptions(data, view);
+          renderTable(data, view);
+        } catch (error) {
+          console.error(error);
+          const endpoint = view === "students" ? "student_subtopics" : "subtopics";
+          statusEl.textContent = `Unable to load data from ${apiBase}/${endpoint}: ${error.message}`;
+        }
+      }
+
+      function updateTagFilterOptions(data, view) {
+        const previousValue = tagFilter.value;
+        const tags = new Set();
+        if (view === "students") {
+          for (const row of data) {
+            for (const tag of row.tags || []) {
+              tags.add(tag);
+            }
+          }
+        } else {
+          for (const row of data) {
+            if (row.tag) {
+              tags.add(row.tag);
+            }
+          }
+        }
+
+        const sortedTags = Array.from(tags).sort();
+        tagFilter.innerHTML = '<option value="">All tags</option>';
+        for (const tag of sortedTags) {
+          const option = document.createElement("option");
+          option.value = tag;
+          option.textContent = tag.replace(/_/g, " ");
+          tagFilter.appendChild(option);
+        }
+
+        if (previousValue && tags.has(previousValue)) {
+          tagFilter.value = previousValue;
+        } else {
+          tagFilter.value = "";
+        }
+      }
+
+      function setTableColumns(columns) {
+        tableHeadRow.innerHTML = columns
+          .map((column) => `<th scope="col">${column}</th>`)
+          .join("");
+      }
+
+      function renderSubtopicTable(data) {
+        setTableColumns(["Subject", "Topic", "Subtopic", "Tag", "Attempts"]);
+        if (!data.length) {
+          resultsBody.innerHTML = `<tr><td colspan="5">No results found.</td></tr>`;
+          return;
+        }
+
+        const rows = data
+          .map(
+            (row) => `
+            <tr>
+              <td data-label="Subject">${row.subject}</td>
+              <td data-label="Topic">${row.topic}</td>
+              <td data-label="Subtopic">${row.subtopic}</td>
+              <td data-label="Tag"><span class="tag-pill">${row.tag.replace(
+                /_/g,
+                " "
+              )}</span></td>
+              <td data-label="Attempts">${row.count}</td>
+            </tr>`
+          )
+          .join("");
+
+        resultsBody.innerHTML = rows;
+      }
+
+      function renderStudentTable(data) {
+        setTableColumns([
+          "Student ID",
+          "Subject",
+          "Topic",
+          "Subtopic",
+          "Tags",
+          "Attempts",
+        ]);
+        if (!data.length) {
+          resultsBody.innerHTML = `<tr><td colspan="6">No results found.</td></tr>`;
+          return;
+        }
+
+        const rows = data
+          .map((row) => {
+            const tagsMarkup = (row.tags || [])
+              .map(
+                (tag) =>
+                  `<span class="tag-pill">${String(tag).replace(/_/g, " ")}</span>`
+              )
+              .join(" ");
+            return `
+            <tr>
+              <td data-label="Student ID">${row.student_id}</td>
+              <td data-label="Subject">${row.subject}</td>
+              <td data-label="Topic">${row.topic}</td>
+              <td data-label="Subtopic">${row.subtopic}</td>
+              <td data-label="Tags">
+                <div class="tag-group">${tagsMarkup || "—"}</div>
+              </td>
+              <td data-label="Attempts">${row.attempt_count}</td>
+            </tr>`;
+          })
+          .join("");
+
+        resultsBody.innerHTML = rows;
+      }
+
+      function renderTable(data, view) {
+        if (view === "students") {
+          renderStudentTable(data);
+        } else {
+          renderSubtopicTable(data);
+        }
+      }
+
+      tagFilter.addEventListener("change", loadData);
+      sortBy.addEventListener("change", loadData);
+      sortDir.addEventListener("change", loadData);
+      const debouncedLoadData = debounce(loadData, 300);
+      subtopicFilter.addEventListener("input", debouncedLoadData);
+      studentFilter.addEventListener("input", debouncedLoadData);
+      viewSelect.addEventListener("change", () => {
+        updateControlsForView(viewSelect.value);
+        tagFilter.value = "";
+        loadData();
+      });
+      apiBaseInput.addEventListener("change", () => {
+        window.localStorage.setItem("mistakeTagsApiBase", apiBaseInput.value.trim());
+        loadData();
+      });
+      apiBaseInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          apiBaseInput.blur();
+          loadData();
+        }
+      });
+
+      function debounce(callback, delay = 250) {
+        let timeoutId;
+        return (...args) => {
+          window.clearTimeout(timeoutId);
+          timeoutId = window.setTimeout(() => callback.apply(this, args), delay);
+        };
+      }
+
+      updateControlsForView(viewSelect.value);
+      loadData();
+    </script>
+  </body>
+</html>
