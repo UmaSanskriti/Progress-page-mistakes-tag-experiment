@@ -208,14 +208,9 @@
     <footer>
       The mistake tags reuse the existing taxonomy from <code>backend/app/ingest.py</code>.
     </footer>
-    <script src="data/three_student_mistake_summary.js"></script>
     <script>
       async function loadData() {
-        if (window.THREE_STUDENT_MISTAKE_SUMMARY) {
-          return window.THREE_STUDENT_MISTAKE_SUMMARY;
-        }
-
-        const response = await fetch("./data/three_student_mistake_summary.json", {
+        const response = await fetch("data/three_student_mistake_summary.json", {
           cache: "no-store",
         });
         if (!response.ok) {

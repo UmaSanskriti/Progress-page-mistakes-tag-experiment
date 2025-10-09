@@ -12,14 +12,9 @@ DATASET_PATH = ROOT / "Dataset - Progress page test - Sheet1.csv"
 # Locations that should receive the generated dataset. We keep a copy under
 # `frontend/` for local development and another under `docs/` so that GitHub
 # Pages can serve the JSON alongside the static site.
-JSON_OUTPUT_PATHS = (
+OUTPUT_PATHS = (
     ROOT / "frontend" / "data" / "three_student_mistake_summary.json",
     ROOT / "docs" / "data" / "three_student_mistake_summary.json",
-)
-
-JS_OUTPUT_PATHS = (
-    ROOT / "frontend" / "data" / "three_student_mistake_summary.js",
-    ROOT / "docs" / "data" / "three_student_mistake_summary.js",
 )
 
 # Select the first three students that appear in the dataset.
@@ -157,20 +152,11 @@ def main() -> None:
 
     payload = json.dumps(output, indent=2)
 
-    for output_path in JSON_OUTPUT_PATHS:
+    for output_path in OUTPUT_PATHS:
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(payload, encoding="utf-8")
         print(
             f"Wrote aggregated data for {len(output['subtopics'])} subtopics to {output_path}"
-        )
-
-    js_payload = "window.THREE_STUDENT_MISTAKE_SUMMARY = " + payload + ";\n"
-
-    for output_path in JS_OUTPUT_PATHS:
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(js_payload, encoding="utf-8")
-        print(
-            f"Wrote browser-ready dataset for {len(output['subtopics'])} subtopics to {output_path}"
         )
 
 
