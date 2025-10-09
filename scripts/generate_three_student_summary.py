@@ -9,7 +9,13 @@ from collections import Counter, defaultdict, OrderedDict
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATASET_PATH = ROOT / "Dataset - Progress page test - Sheet1.csv"
-OUTPUT_PATH = ROOT / "frontend" / "data" / "three_student_mistake_summary.json"
+# Locations that should receive the generated dataset. We keep a copy under
+# `frontend/` for local development and another under `docs/` so that GitHub
+# Pages can serve the JSON alongside the static site.
+OUTPUT_PATHS = (
+    ROOT / "frontend" / "data" / "three_student_mistake_summary.json",
+    ROOT / "docs" / "data" / "three_student_mistake_summary.json",
+)
 
 # Select the first three students that appear in the dataset.
 SELECTED_STUDENTS: tuple[str, ...] = ("192153", "191956", "181246")
@@ -144,9 +150,14 @@ def main() -> None:
             }
         )
 
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_PATH.write_text(json.dumps(output, indent=2), encoding="utf-8")
-    print(f"Wrote aggregated data for {len(output['subtopics'])} subtopics to {OUTPUT_PATH}")
+    payload = json.dumps(output, indent=2)
+
+    for output_path in OUTPUT_PATHS:
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_text(payload, encoding="utf-8")
+        print(
+            f"Wrote aggregated data for {len(output['subtopics'])} subtopics to {output_path}"
+        )
 
 
 if __name__ == "__main__":

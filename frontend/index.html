@@ -115,7 +115,7 @@
 
       .student-breakdown {
         display: grid;
-        gap: 0.5rem;
+        gap: 0.75rem;
       }
 
       .student-breakdown h3 {
@@ -126,13 +126,29 @@
 
       .student-row {
         display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        align-items: center;
+        flex-direction: column;
+        gap: 0.4rem;
+        align-items: flex-start;
         background: #f1f5f9;
         border-radius: 0.75rem;
-        padding: 0.5rem 0.75rem;
+        padding: 0.75rem 0.85rem;
         font-size: 0.9rem;
+      }
+
+      .student-label {
+        font-weight: 600;
+        color: #1e293b;
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .tag-empty {
+        color: #64748b;
+        font-style: italic;
       }
 
       footer {
@@ -203,13 +219,29 @@
         return response.json();
       }
 
-      function formatTagCounts(tagCounts) {
+      function createTagList(tagCounts) {
+        const container = document.createElement("div");
+        container.className = "tag-list";
+
         if (!tagCounts || tagCounts.length === 0) {
-          return "—";
+          const empty = document.createElement("span");
+          empty.className = "tag-empty";
+          empty.textContent = "No incorrect attempts recorded.";
+          container.appendChild(empty);
+          return container;
         }
-        return tagCounts
-          .map((entry) => `${entry.tag.replaceAll("_", " ")} (${entry.count})`)
-          .join(", ");
+
+        tagCounts
+          .slice()
+          .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag))
+          .forEach((entry) => {
+            const tag = document.createElement("span");
+            tag.className = "tag-pill";
+            tag.textContent = `${entry.tag.replaceAll("_", " ")} (${entry.count})`;
+            container.appendChild(tag);
+          });
+
+        return container;
       }
 
       function renderSubtopic(container, subtopic) {
@@ -279,12 +311,11 @@
           const row = document.createElement("div");
           row.className = "student-row";
           const idSpan = document.createElement("span");
+          idSpan.className = "student-label";
           idSpan.textContent = `Student ${student.student_id}`;
           row.appendChild(idSpan);
 
-          const tagsSpan = document.createElement("span");
-          tagsSpan.textContent = formatTagCounts(student.tag_counts);
-          row.appendChild(tagsSpan);
+          row.appendChild(createTagList(student.tag_counts));
 
           studentSection.appendChild(row);
         });
