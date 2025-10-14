@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import csv
+import html
 import json
 import pathlib
-from collections import Counter, defaultdict, OrderedDict
+import re
+from collections import OrderedDict, defaultdict
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATASET_PATH = ROOT / "Dataset - Progress page test - Sheet1.csv"
@@ -20,6 +22,8 @@ OUTPUT_PATHS = (
 # Select the first three students that appear in the dataset.
 SELECTED_STUDENTS: tuple[str, ...] = ("192153", "191956", "181246")
 
+TAG_CLEANER = re.compile(r"<[^>]+>")
+
 
 def _to_float(value: str | None) -> float:
     try:
@@ -28,6 +32,16 @@ def _to_float(value: str | None) -> float:
         return float(value)
     except (TypeError, ValueError):
         return 0.0
+
+
+def clean_html(value: str | None) -> str:
+    """Convert the HTML snippets in the CSV into legible plain text."""
+
+    if not value:
+        return ""
+    stripped = TAG_CLEANER.sub(" ", value)
+    stripped = html.unescape(stripped)
+    return re.sub(r"\s+", " ", stripped).strip()
 
 
 def derive_tags(row: dict[str, str]) -> set[str]:
@@ -62,91 +76,174 @@ def derive_tags(row: dict[str, str]) -> set[str]:
     return tags
 
 
+def determine_skill_label(total_awarded: float, total_available: float) -> dict[str, object]:
+    """Turn marks into a coarse skill descriptor."""
+
+    if total_available <= 0:
+        return {"label": "No data", "accuracy": None}
+
+    ratio = 0.0 if total_available == 0 else max(0.0, min(1.0, total_awarded / total_available))
+
+    if ratio >= 0.8:
+        label = "Advanced"
+    elif ratio >= 0.5:
+        label = "Proficient"
+    else:
+        label = "Developing"
+
+    return {"label": label, "accuracy": round(ratio * 100, 1)}
+
+
 def main() -> None:
     if not DATASET_PATH.exists():
         raise SystemExit(f"Dataset not found: {DATASET_PATH}")
 
-    subtopic_meta: dict[str, dict[str, str]] = {}
-    overall_counts: dict[str, Counter] = defaultdict(Counter)
-    per_student_counts: dict[str, dict[str, Counter]] = defaultdict(lambda: defaultdict(Counter))
-    attempt_counts: dict[str, int] = defaultdict(int)
     students_seen: "OrderedDict[str, None]" = OrderedDict()
+    student_topics: dict[str, dict[tuple[str, str], dict[str, object]]] = defaultdict(
+        lambda: defaultdict(
+            lambda: {
+                "subject": "",
+                "topic": "",
+                "questions_attempted": 0,
+                "mistake_attempts": 0,
+                "marks_available": 0.0,
+                "marks_awarded": 0.0,
+                "subtopics": defaultdict(
+                    lambda: {
+                        "subtopic_id": 0,
+                        "subtopic": "",
+                        "attempt_count": 0,
+                        "tags": defaultdict(
+                            lambda: {"tag": "", "count": 0, "questions": []}
+                        ),
+                    }
+                ),
+            }
+        )
+    )
 
     with DATASET_PATH.open(newline="", encoding="utf-8") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            student_id = row["student_id"].strip()
+            student_id = (row.get("student_id") or "").strip()
+            if not student_id:
+                continue
+
             students_seen.setdefault(student_id, None)
             if student_id not in SELECTED_STUDENTS:
                 continue
 
+            subject = (row.get("subject_name") or "").strip()
+            topic_name = (row.get("name") or "").strip()
+            subtopic_id_raw = (row.get("id") or "0").strip()
+            subtopic_name = (row.get("description") or "").strip()
+
+            topic_entry = student_topics[student_id][(subject, topic_name)]
+            topic_entry["subject"] = subject
+            topic_entry["topic"] = topic_name
+            topic_entry["questions_attempted"] += 1
+
             mark = _to_float(row.get("mark"))
             mark_awarded = _to_float(row.get("mark_awarded"))
+            if mark > 0:
+                topic_entry["marks_available"] += mark
+                topic_entry["marks_awarded"] += min(mark_awarded, mark)
 
-            # Only consider incorrect attempts where the student did not receive full marks.
-            if mark_awarded >= mark and mark > 0:
-                continue
+            tags = {tag for tag in derive_tags(row) if tag != "mastered"}
+            if tags:
+                topic_entry["mistake_attempts"] += 1
 
-            subtopic_id = row["id"].strip()
-            subtopic_meta.setdefault(
-                subtopic_id,
-                {
-                    "subject": row.get("subject_name", "").strip(),
-                    "topic": row.get("name", "").strip(),
-                    "subtopic": row.get("description", "").strip(),
-                },
-            )
-
-            tags = {
-                tag
-                for tag in derive_tags(row)
-                if tag != "mastered"  # Guard against edge cases when mark is zero.
-            }
+            subtopic_entry = topic_entry["subtopics"][subtopic_id_raw]
+            subtopic_entry["subtopic_id"] = int(subtopic_id_raw or 0)
+            subtopic_entry["subtopic"] = subtopic_name
+            subtopic_entry["attempt_count"] += 1
 
             if not tags:
                 continue
 
-            overall_counts[subtopic_id].update(tags)
-            per_student_counts[subtopic_id][student_id].update(tags)
-            attempt_counts[subtopic_id] += 1
+            prompt_primary = clean_html(row.get("q_text"))
+            prompt_secondary = clean_html(row.get("q_text1"))
+            if prompt_primary and prompt_secondary and prompt_secondary != prompt_primary:
+                prompt = f"{prompt_primary} {prompt_secondary}".strip()
+            else:
+                prompt = prompt_primary or prompt_secondary
 
-    sorted_subtopics = sorted(
-        overall_counts.keys(),
-        key=lambda sid: (subtopic_meta[sid]["subject"], subtopic_meta[sid]["topic"], subtopic_meta[sid]["subtopic"].lower()),
-    )
+            question_data = {
+                "answer_id": (row.get("answer_id") or "").strip(),
+                "part_id": (row.get("part_id") or "").strip(),
+                "prompt": prompt,
+                "student_answer": clean_html(row.get("answer")),
+                "mark": mark,
+                "mark_awarded": mark_awarded,
+                "student_score": _to_float(row.get("student_score")),
+            }
+
+            for tag in tags:
+                tag_entry = subtopic_entry["tags"][tag]
+                tag_entry["tag"] = tag
+                tag_entry["count"] += 1
+                tag_entry["questions"].append(question_data)
 
     output = {
         "selected_students": list(SELECTED_STUDENTS),
         "students_present": list(students_seen.keys()),
-        "subtopics": [],
+        "students": [],
     }
 
-    for subtopic_id in sorted_subtopics:
-        meta = subtopic_meta[subtopic_id]
-        tag_counts = overall_counts[subtopic_id]
-        student_counts = per_student_counts[subtopic_id]
+    for student_id in SELECTED_STUDENTS:
+        topics = student_topics.get(student_id)
+        if not topics:
+            continue
 
-        output["subtopics"].append(
-            {
-                "subtopic_id": int(subtopic_id),
-                "subject": meta["subject"],
-                "topic": meta["topic"],
-                "subtopic": meta["subtopic"],
-                "attempts_considered": attempt_counts[subtopic_id],
-                "tag_counts": [
-                    {"tag": tag, "count": tag_counts[tag]}
-                    for tag in sorted(tag_counts.keys())
-                ],
-                "students": [
+        topic_payload = []
+        for (subject, topic_name), topic_entry in sorted(
+            topics.items(), key=lambda item: (item[0][0], item[0][1].lower())
+        ):
+            subtopics_payload = []
+            for subtopic_id, subtopic_entry in sorted(
+                topic_entry["subtopics"].items(),
+                key=lambda item: item[1]["subtopic"].lower(),
+            ):
+                tags_payload = [
                     {
-                        "student_id": int(student_id),
-                        "tag_counts": [
-                            {"tag": tag, "count": counts[tag]}
-                            for tag in sorted(counts.keys())
-                        ],
+                        "tag": tag_entry["tag"],
+                        "count": tag_entry["count"],
+                        "questions": tag_entry["questions"],
                     }
-                    for student_id, counts in sorted(student_counts.items())
-                ],
+                    for tag_entry in sorted(
+                        subtopic_entry["tags"].values(),
+                        key=lambda info: (-info["count"], info["tag"]),
+                    )
+                ]
+
+                subtopics_payload.append(
+                    {
+                        "subtopic_id": subtopic_entry["subtopic_id"],
+                        "subtopic": subtopic_entry["subtopic"],
+                        "attempt_count": subtopic_entry["attempt_count"],
+                        "tags": tags_payload,
+                    }
+                )
+
+            skill = determine_skill_label(
+                topic_entry["marks_awarded"], topic_entry["marks_available"]
+            )
+
+            topic_payload.append(
+                {
+                    "subject": subject,
+                    "topic": topic_name,
+                    "skill": skill,
+                    "questions_attempted": topic_entry["questions_attempted"],
+                    "mistake_attempts": topic_entry["mistake_attempts"],
+                    "subtopics": subtopics_payload,
+                }
+            )
+
+        output["students"].append(
+            {
+                "student_id": int(student_id),
+                "topics": topic_payload,
             }
         )
 
@@ -156,7 +253,7 @@ def main() -> None:
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(payload, encoding="utf-8")
         print(
-            f"Wrote aggregated data for {len(output['subtopics'])} subtopics to {output_path}"
+            f"Wrote topic profiles for {len(output['students'])} students to {output_path}"
         )
 
 
