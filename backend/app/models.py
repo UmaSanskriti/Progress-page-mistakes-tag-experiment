@@ -1,76 +1,70 @@
+"""Database models for the progress page experiment."""
 from __future__ import annotations
 
-from sqlalchemy import Column, ForeignKey, Integer, String, Table, Text, Float, Boolean
-from sqlalchemy.orm import declarative_base, relationship
+from typing import Dict, List
+
+from sqlalchemy import Column, Integer, String, Text
+from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
 
-attempt_mistake_tags = Table(
-    "attempt_mistake_tags",
-    Base.metadata,
-    Column("attempt_id", ForeignKey("attempts.id"), primary_key=True),
-    Column("mistake_tag_id", ForeignKey("mistake_tags.id"), primary_key=True),
-)
+class AttemptRecord(Base):
+    """Represents a single row from the source CSV file.
+
+    The column names mirror the CSV headers exactly so that the resulting
+    database can be compared field-for-field with the original dataset.  The
+    only additional field is ``is_mistake`` which stores a binary flag derived
+    from the grading information that indicates whether the attempt should be
+    treated as a mistake.
+    """
+
+    __tablename__ = "attempt_records"
+
+    answer_id = Column(String, primary_key=True)
+    student_id = Column(String, nullable=False)
+    subject_id = Column(String, nullable=True)
+    subject_name = Column(String, nullable=True)
+    name = Column(String, nullable=True)
+    subtopic_id = Column("id", String, nullable=True)
+    description = Column(String, nullable=True)
+    kid = Column(String, primary_key=True, nullable=True)
+    part_id = Column(String, primary_key=True, nullable=True)
+    q_text = Column(Text, nullable=True)
+    q_image = Column(String, nullable=True)
+    q_text1 = Column(Text, nullable=True)
+    answer = Column(Text, nullable=True)
+    mark = Column(String, nullable=True)
+    mark_awarded = Column(String, nullable=True)
+    student_score = Column(String, nullable=True)
+    is_mistake = Column(Integer, nullable=False, default=0)
+
+    def as_dict(self) -> Dict[str, str | int | None]:
+        """Return a serialisable representation using the CSV headers."""
+
+        return {
+            "student_id": self.student_id,
+            "subject_id": self.subject_id,
+            "subject_name": self.subject_name,
+            "name": self.name,
+            "id": self.subtopic_id,
+            "description": self.description,
+            "kid": self.kid,
+            "answer_id": self.answer_id,
+            "part_id": self.part_id,
+            "q_text": self.q_text,
+            "q_image": self.q_image,
+            "q_text1": self.q_text1,
+            "answer": self.answer,
+            "mark": self.mark,
+            "mark_awarded": self.mark_awarded,
+            "student_score": self.student_score,
+            "is_mistake": self.is_mistake,
+        }
 
 
-class Student(Base):
-    __tablename__ = "students"
+def to_serialisable(records: List[AttemptRecord]) -> List[Dict[str, str | int | None]]:
+    """Convert attempt rows into dictionaries for JSON responses."""
 
-    id = Column(Integer, primary_key=True, autoincrement=False)
+    return [record.as_dict() for record in records]
 
-    attempts = relationship("Attempt", back_populates="student")
-
-
-class Subtopic(Base):
-    __tablename__ = "subtopics"
-
-    id = Column(Integer, primary_key=True, autoincrement=False)
-    subject_id = Column(Integer, nullable=False)
-    subject_name = Column(String, nullable=False)
-    topic_name = Column(String, nullable=False)
-    name = Column(String, nullable=False)
-
-    questions = relationship("Question", back_populates="subtopic")
-    attempts = relationship("Attempt", back_populates="subtopic")
-
-
-class Question(Base):
-    __tablename__ = "questions"
-
-    id = Column(Integer, primary_key=True, autoincrement=False)
-    subtopic_id = Column(Integer, ForeignKey("subtopics.id"), nullable=False)
-    text = Column(Text)
-    image_url = Column(String)
-
-    subtopic = relationship("Subtopic", back_populates="questions")
-    attempts = relationship("Attempt", back_populates="question")
-
-
-class Attempt(Base):
-    __tablename__ = "attempts"
-
-    id = Column(Integer, primary_key=True, autoincrement=False)
-    student_id = Column(Integer, ForeignKey("students.id"), nullable=False)
-    question_id = Column(Integer, ForeignKey("questions.id"), nullable=False)
-    subtopic_id = Column(Integer, ForeignKey("subtopics.id"), nullable=False)
-    answer_text = Column(Text)
-    mark = Column(Float, nullable=False, default=0)
-    mark_awarded = Column(Float, nullable=False, default=0)
-    student_score = Column(Float, nullable=True)
-    is_mistake = Column(Boolean, nullable=False, default=False)
-
-    student = relationship("Student", back_populates="attempts")
-    question = relationship("Question", back_populates="attempts")
-    subtopic = relationship("Subtopic", back_populates="attempts")
-    tags = relationship("MistakeTag", secondary=attempt_mistake_tags, back_populates="attempts")
-
-
-class MistakeTag(Base):
-    __tablename__ = "mistake_tags"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String, unique=True, nullable=False)
-    description = Column(Text, nullable=True)
-
-    attempts = relationship("Attempt", secondary=attempt_mistake_tags, back_populates="tags")

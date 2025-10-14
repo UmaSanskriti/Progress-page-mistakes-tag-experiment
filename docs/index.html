@@ -311,14 +311,80 @@
       levels are derived from the share of marks awarded per topic.
     </footer>
     <script>
+      const htmlHelper = document.createElement("div");
+
       async function loadData() {
-        const response = await fetch("data/three_student_mistake_summary.json", {
+        const response = await fetch("data/student_attempts.json", {
           cache: "no-store",
         });
         if (!response.ok) {
-          throw new Error(`Failed to load summary: ${response.status}`);
+          throw new Error(`Failed to load dataset: ${response.status}`);
         }
         return response.json();
+      }
+
+      function cleanHtml(value) {
+        if (!value) return "";
+        htmlHelper.innerHTML = value;
+        return (htmlHelper.textContent || "").replace(/\s+/g, " ").trim();
+      }
+
+      function parseNumber(value) {
+        if (value === null || value === undefined || value === "") {
+          return 0;
+        }
+        const parsed = Number(value);
+        return Number.isFinite(parsed) ? parsed : 0;
+      }
+
+      function deriveTags(row) {
+        const mark = parseNumber(row.mark);
+        const markAwarded = parseNumber(row.mark_awarded);
+        const studentScore = parseNumber(row.student_score);
+        const answerText = (row.answer || "").trim();
+
+        const tags = new Set();
+
+        if (!answerText) {
+          tags.add("blank_response");
+        }
+
+        if (mark > 0 && markAwarded === mark) {
+          tags.add("mastered");
+        } else if (markAwarded === 0) {
+          tags.add("conceptual_gap");
+        } else if (markAwarded < mark) {
+          tags.add("partial_understanding");
+        }
+
+        if (markAwarded < mark) {
+          tags.add("review_with_teacher");
+        }
+
+        if (studentScore < mark) {
+          tags.add("needs_revision");
+        }
+
+        if (tags.size === 0) {
+          tags.add("needs_revision");
+        }
+
+        return tags;
+      }
+
+      function determineSkill(totalAwarded, totalAvailable) {
+        if (!totalAvailable || totalAvailable <= 0) {
+          return { label: "No data", accuracy: null };
+        }
+
+        const ratio = Math.max(0, Math.min(1, totalAwarded / totalAvailable));
+        if (ratio >= 0.8) {
+          return { label: "Advanced", accuracy: Math.round(ratio * 1000) / 10 };
+        }
+        if (ratio >= 0.5) {
+          return { label: "Proficient", accuracy: Math.round(ratio * 1000) / 10 };
+        }
+        return { label: "Developing", accuracy: Math.round(ratio * 1000) / 10 };
       }
 
       function getSkillClass(label) {
@@ -327,6 +393,168 @@
         if (key.includes("proficient")) return "skill-proficient";
         if (key.includes("develop")) return "skill-developing";
         return "skill-no-data";
+      }
+
+      function buildStudentProfiles(attempts, selectedStudents) {
+        const byStudent = new Map();
+
+        attempts.forEach((row) => {
+          const studentId = String(row.student_id || "").trim();
+          if (!studentId) {
+            return;
+          }
+
+          let student = byStudent.get(studentId);
+          if (!student) {
+            student = {
+              student_id: studentId,
+              topics: new Map(),
+            };
+            byStudent.set(studentId, student);
+          }
+
+          const subject = (row.subject_name || "").trim();
+          const topicName = (row.name || "").trim();
+          const topicKey = `${subject}|||${topicName}`;
+
+          let topic = student.topics.get(topicKey);
+          if (!topic) {
+            topic = {
+              subject,
+              topic: topicName,
+              questions_attempted: 0,
+              mistake_attempts: 0,
+              marks_available: 0,
+              marks_awarded: 0,
+              subtopics: new Map(),
+            };
+            student.topics.set(topicKey, topic);
+          }
+
+          const mark = parseNumber(row.mark);
+          const markAwarded = parseNumber(row.mark_awarded);
+          const studentScore = parseNumber(row.student_score);
+          const isMistake = Number(row.is_mistake) === 1;
+
+          topic.questions_attempted += 1;
+          if (mark > 0) {
+            topic.marks_available += mark;
+            topic.marks_awarded += Math.min(markAwarded, mark);
+          }
+          if (isMistake) {
+            topic.mistake_attempts += 1;
+          }
+
+          const subtopicIdRaw = String(row.id || "");
+          const subtopicName = (row.description || "").trim();
+
+          let subtopic = topic.subtopics.get(subtopicIdRaw);
+          if (!subtopic) {
+            subtopic = {
+              subtopic_id: Number(subtopicIdRaw || 0),
+              subtopic: subtopicName,
+              attempt_count: 0,
+              tags: new Map(),
+            };
+            topic.subtopics.set(subtopicIdRaw, subtopic);
+          }
+
+          subtopic.attempt_count += 1;
+
+          if (!isMistake) {
+            return;
+          }
+
+          const tags = deriveTags(row);
+          tags.delete("mastered");
+          if (tags.size === 0) {
+            return;
+          }
+
+          const promptPrimary = cleanHtml(row.q_text);
+          const promptSecondary = cleanHtml(row.q_text1);
+          let prompt = promptPrimary;
+          if (promptSecondary && promptSecondary !== promptPrimary) {
+            prompt = `${promptPrimary} ${promptSecondary}`.trim();
+          }
+          if (!prompt) {
+            prompt = promptSecondary || promptPrimary;
+          }
+
+          const questionInfo = {
+            answer_id: row.answer_id || "",
+            part_id: row.part_id || "",
+            prompt,
+            student_answer: cleanHtml(row.answer),
+            mark: mark,
+            mark_awarded: markAwarded,
+            student_score: studentScore,
+          };
+
+          tags.forEach((tag) => {
+            const tagKey = String(tag);
+            let tagEntry = subtopic.tags.get(tagKey);
+            if (!tagEntry) {
+              tagEntry = { tag: tagKey, count: 0, questions: [] };
+              subtopic.tags.set(tagKey, tagEntry);
+            }
+            tagEntry.count += 1;
+            tagEntry.questions.push(questionInfo);
+          });
+        });
+
+        const profiles = new Map();
+
+        byStudent.forEach((student, studentId) => {
+          const topicList = Array.from(student.topics.values())
+            .map((topic) => {
+              const subtopics = Array.from(topic.subtopics.values())
+                .map((subtopic) => {
+                  const tags = Array.from(subtopic.tags.values()).sort((a, b) => {
+                    if (b.count !== a.count) {
+                      return b.count - a.count;
+                    }
+                    return a.tag.localeCompare(b.tag);
+                  });
+
+                  return {
+                    subtopic_id: subtopic.subtopic_id,
+                    subtopic: subtopic.subtopic,
+                    attempt_count: subtopic.attempt_count,
+                    tags,
+                  };
+                })
+                .sort((a, b) => a.subtopic.localeCompare(b.subtopic));
+
+              return {
+                subject: topic.subject,
+                topic: topic.topic,
+                skill: determineSkill(topic.marks_awarded, topic.marks_available),
+                questions_attempted: topic.questions_attempted,
+                mistake_attempts: topic.mistake_attempts,
+                subtopics,
+              };
+            })
+            .sort((a, b) => {
+              if (a.subject === b.subject) {
+                return a.topic.localeCompare(b.topic);
+              }
+              return a.subject.localeCompare(b.subject);
+            });
+
+          profiles.set(studentId, {
+            student_id: studentId,
+            topics: topicList,
+          });
+        });
+
+        selectedStudents.forEach((id) => {
+          if (!profiles.has(id)) {
+            profiles.set(id, { student_id: id, topics: [] });
+          }
+        });
+
+        return profiles;
       }
 
       function renderQuestionList(container, tagEntry, subtopicName) {
@@ -546,9 +774,32 @@
 
         try {
           const data = await loadData();
+          const attempts = Array.isArray(data.attempts) ? data.attempts : [];
+          const selectedStudents = Array.isArray(data.selected_students)
+            ? data.selected_students.map((id) => String(id))
+            : [];
+          const studentsPresent = Array.isArray(data.students_present)
+            ? data.students_present.map((id) => String(id))
+            : [];
 
-          const excluded = data.students_present.filter(
-            (id) => !data.selected_students.includes(id)
+          const activeStudents =
+            selectedStudents.length > 0
+              ? selectedStudents
+              : Array.from(
+                  new Set(
+                    attempts
+                      .map((row) => String(row.student_id || "").trim())
+                      .filter((id) => id !== "")
+                  )
+                ).slice(0, 3);
+
+          const attemptsForSelected = attempts.filter((row) =>
+            activeStudents.includes(String(row.student_id || "").trim())
+          );
+          const profiles = buildStudentProfiles(attemptsForSelected, activeStudents);
+
+          const excluded = studentsPresent.filter(
+            (id) => !activeStudents.includes(String(id))
           );
           if (excluded.length > 0) {
             datasetNote.textContent = `${excluded.length} other students were excluded from this sample.`;
@@ -557,16 +808,14 @@
           }
 
           select.innerHTML = "";
-          data.selected_students.forEach((id) => {
+          activeStudents.forEach((id) => {
             const option = document.createElement("option");
             option.value = id;
             option.textContent = id;
             select.appendChild(option);
           });
 
-          const byId = new Map(
-            data.students.map((student) => [String(student.student_id), student])
-          );
+          const byId = profiles;
 
           const updateStudent = (id) => {
             const student = byId.get(String(id));
@@ -591,7 +840,7 @@
             updateStudent(event.target.value);
           });
 
-          const defaultStudent = select.value || data.selected_students[0];
+          const defaultStudent = select.value || activeStudents[0];
           updateStudent(defaultStudent);
         } catch (error) {
           studentSummary.textContent = "Unable to load student information.";
