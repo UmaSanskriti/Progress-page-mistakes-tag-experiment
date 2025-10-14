@@ -9,943 +9,3849 @@
     "191956",
     "181246"
   ],
-  "subtopics": [
+  "students": [
     {
-      "subtopic_id": 570,
-      "subject": "Science",
-      "topic": "Animals",
-      "subtopic": "Classify animals based on methods of breathing*",
-      "attempts_considered": 8,
-      "tag_counts": [
+      "student_id": 192153,
+      "topics": [
         {
-          "tag": "blank_response",
-          "count": 2
-        },
-        {
-          "tag": "conceptual_gap",
-          "count": 7
-        },
-        {
-          "tag": "partial_understanding",
-          "count": 1
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 8
-        }
-      ],
-      "students": [
-        {
-          "student_id": 181246,
-          "tag_counts": [
+          "subject": "Science",
+          "topic": "Animals",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 79.4
+          },
+          "questions_attempted": 13,
+          "mistake_attempts": 8,
+          "subtopics": [
             {
-              "tag": "blank_response",
-              "count": 2
-            },
-            {
-              "tag": "conceptual_gap",
-              "count": 3
-            },
-            {
-              "tag": "partial_understanding",
-              "count": 1
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 4
+              "subtopic_id": 570,
+              "subtopic": "Characteristics of animals",
+              "attempt_count": 13,
+              "tags": [
+                {
+                  "tag": "blank_response",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "121177293",
+                      "part_id": "1053a",
+                      "prompt": "Match each animal to their correct outer covering.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 4.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "121177293",
+                      "part_id": "1053a",
+                      "prompt": "Match each animal to their correct outer covering.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 4.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "121177293",
+                      "part_id": "1053a",
+                      "prompt": "Match each animal to their correct outer covering.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 4.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "121177293",
+                      "part_id": "1053a",
+                      "prompt": "Match each animal to their correct outer covering.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 4.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "108617392",
+                      "part_id": "689a",
+                      "prompt": "Study the flow chart below.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108615380",
+                      "part_id": "648a",
+                      "prompt": "Study the classification chart below.",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108616104",
+                      "part_id": "117a",
+                      "prompt": "Observe the following animals.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113355850",
+                      "part_id": "1088b",
+                      "prompt": "In which group, A, B, C or D, would a parrot belong?",
+                      "student_answer": "group D",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "108617392",
+                      "part_id": "689a",
+                      "prompt": "Study the flow chart below.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108615380",
+                      "part_id": "648a",
+                      "prompt": "Study the classification chart below.",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108616104",
+                      "part_id": "117a",
+                      "prompt": "Observe the following animals.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113355850",
+                      "part_id": "1088b",
+                      "prompt": "In which group, A, B, C or D, would a parrot belong?",
+                      "student_answer": "group D",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         {
-          "student_id": 192153,
-          "tag_counts": [
+          "subject": "Science",
+          "topic": "Classification",
+          "skill": {
+            "label": "Developing",
+            "accuracy": 0.0
+          },
+          "questions_attempted": 1,
+          "mistake_attempts": 1,
+          "subtopics": [
             {
-              "tag": "conceptual_gap",
-              "count": 4
-            },
+              "subtopic_id": 569,
+              "subtopic": "Classify things based on their characteristics",
+              "attempt_count": 1,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "110248180",
+                      "part_id": "12a",
+                      "prompt": "Help Martha to complete the classification chart by drawing the objects in the boxes provided.",
+                      "student_answer": "not sure",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 8.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "110248180",
+                      "part_id": "12a",
+                      "prompt": "Help Martha to complete the classification chart by drawing the objects in the boxes provided.",
+                      "student_answer": "not sure",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 8.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Digestive System",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 69.2
+          },
+          "questions_attempted": 7,
+          "mistake_attempts": 3,
+          "subtopics": [
             {
-              "tag": "review_with_teacher",
-              "count": 4
+              "subtopic_id": 549,
+              "subtopic": "Recognise function of digestive system",
+              "attempt_count": 7,
+              "tags": [
+                {
+                  "tag": "review_with_teacher",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "113825780",
+                      "part_id": "1013519b",
+                      "prompt": "Yasmin recorded the time taken for food B to be completely digested. The results are shown below. Result W X Y Z Amount of digestive juice (ml) 50 100 80 100 Time taken for the food to be digested (min) 40 10 27 20",
+                      "student_answer": "set-up X it had the most amount of digestive jucies and took a shoter time for the food to be digested.",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "110711263",
+                      "part_id": "1013498b",
+                      "prompt": "Compare the sizes of the undigested food particles in samples Y and Z. Explain why this is so.",
+                      "student_answer": "Not sure",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116608294",
+                      "part_id": "1952a",
+                      "prompt": "What is the function of the human digestive system?",
+                      "student_answer": "to break down food into simpler substances.",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "partial_understanding",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "113825780",
+                      "part_id": "1013519b",
+                      "prompt": "Yasmin recorded the time taken for food B to be completely digested. The results are shown below. Result W X Y Z Amount of digestive juice (ml) 50 100 80 100 Time taken for the food to be digested (min) 40 10 27 20",
+                      "student_answer": "set-up X it had the most amount of digestive jucies and took a shoter time for the food to be digested.",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116608294",
+                      "part_id": "1952a",
+                      "prompt": "What is the function of the human digestive system?",
+                      "student_answer": "to break down food into simpler substances.",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "110711263",
+                      "part_id": "1013498b",
+                      "prompt": "Compare the sizes of the undigested food particles in samples Y and Z. Explain why this is so.",
+                      "student_answer": "Not sure",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Exploring Materials",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 56.2
+          },
+          "questions_attempted": 8,
+          "mistake_attempts": 4,
+          "subtopics": [
+            {
+              "subtopic_id": 567,
+              "subtopic": "Relate the use of materials to their physical properties",
+              "attempt_count": 8,
+              "tags": [
+                {
+                  "tag": "review_with_teacher",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "112239243",
+                      "part_id": "1012180b",
+                      "prompt": "Jaffar wanted to make a shelf that could hold his collection of books as shown below.",
+                      "student_answer": "C : wooden plank Q E : wooden plank Q can hold the most number of blocks . R : If the shelf is not strong enough than the shelf will not be able to hold any books .",
+                      "mark": 3.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 5.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113075508",
+                      "part_id": "1006814a",
+                      "prompt": "What was the aim of Samantha\u2019s experiment?",
+                      "student_answer": "To see which string is the most absorbed",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 5.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108615629",
+                      "part_id": "1128a",
+                      "prompt": "The picture below shows the metallic armour a soldier wore to war in the past.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 5.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "117025545",
+                      "part_id": "1174a",
+                      "prompt": "Which of the following is made from a man-made material? (1) Silver spoon (2) Raincoat (3) Feather duster (4) Tomato ketchup",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 5.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "113075508",
+                      "part_id": "1006814a",
+                      "prompt": "What was the aim of Samantha\u2019s experiment?",
+                      "student_answer": "To see which string is the most absorbed",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 5.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108615629",
+                      "part_id": "1128a",
+                      "prompt": "The picture below shows the metallic armour a soldier wore to war in the past.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 5.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "117025545",
+                      "part_id": "1174a",
+                      "prompt": "Which of the following is made from a man-made material? (1) Silver spoon (2) Raincoat (3) Feather duster (4) Tomato ketchup",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 5.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "partial_understanding",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "112239243",
+                      "part_id": "1012180b",
+                      "prompt": "Jaffar wanted to make a shelf that could hold his collection of books as shown below.",
+                      "student_answer": "C : wooden plank Q E : wooden plank Q can hold the most number of blocks . R : If the shelf is not strong enough than the shelf will not be able to hold any books .",
+                      "mark": 3.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 5.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Fungi and Bacteria",
+          "skill": {
+            "label": "Advanced",
+            "accuracy": 90.9
+          },
+          "questions_attempted": 8,
+          "mistake_attempts": 1,
+          "subtopics": [
+            {
+              "subtopic_id": 568,
+              "subtopic": "Identify different parts of a mushroom and their functions*",
+              "attempt_count": 8,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "121177556",
+                      "part_id": "16512c",
+                      "prompt": "Some fungi like toadstools are inedible because they are poisonous. However, others can be useful to people. Give an example of a fungus that is useful and state its usefulness.",
+                      "student_answer": "Yeast because it helps us to bake cakes",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "121177556",
+                      "part_id": "16512c",
+                      "prompt": "Some fungi like toadstools are inedible because they are poisonous. However, others can be useful to people. Give an example of a fungus that is useful and state its usefulness.",
+                      "student_answer": "Yeast because it helps us to bake cakes",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Heat & Effects of Heat",
+          "skill": {
+            "label": "Developing",
+            "accuracy": 34.8
+          },
+          "questions_attempted": 12,
+          "mistake_attempts": 8,
+          "subtopics": [
+            {
+              "subtopic_id": 558,
+              "subtopic": "Recognise heat gain by matter can result in change of state",
+              "attempt_count": 12,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 8,
+                  "questions": [
+                    {
+                      "answer_id": "115953023",
+                      "part_id": "17430a",
+                      "prompt": "Some ice cubes were dropped into a beaker of hot tea.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122606295",
+                      "part_id": "17445a",
+                      "prompt": "The table below shows the expansion of certain metals when heated to 100$^\\circ$C.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122606238",
+                      "part_id": "7255a",
+                      "prompt": "Peter set up the following apparatus. He wrapped a piece of hot cloth around the bottom of the conical flask as shown in the diagram below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122606487",
+                      "part_id": "2862b",
+                      "prompt": "Explain your answer in (a).",
+                      "student_answer": "n",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122606487",
+                      "part_id": "2862b",
+                      "prompt": "Explain your answer in (a).",
+                      "student_answer": "n",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122606487",
+                      "part_id": "2862b",
+                      "prompt": "Explain your answer in (a).",
+                      "student_answer": "n",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "115953023",
+                      "part_id": "17430a",
+                      "prompt": "Some ice cubes were dropped into a beaker of hot tea.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122606461",
+                      "part_id": "2792a",
+                      "prompt": "What change of state occurs in the ice blocks after 1 hour?",
+                      "student_answer": "melting",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 8,
+                  "questions": [
+                    {
+                      "answer_id": "115953023",
+                      "part_id": "17430a",
+                      "prompt": "Some ice cubes were dropped into a beaker of hot tea.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122606295",
+                      "part_id": "17445a",
+                      "prompt": "The table below shows the expansion of certain metals when heated to 100$^\\circ$C.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122606238",
+                      "part_id": "7255a",
+                      "prompt": "Peter set up the following apparatus. He wrapped a piece of hot cloth around the bottom of the conical flask as shown in the diagram below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122606487",
+                      "part_id": "2862b",
+                      "prompt": "Explain your answer in (a).",
+                      "student_answer": "n",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122606487",
+                      "part_id": "2862b",
+                      "prompt": "Explain your answer in (a).",
+                      "student_answer": "n",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122606487",
+                      "part_id": "2862b",
+                      "prompt": "Explain your answer in (a).",
+                      "student_answer": "n",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "115953023",
+                      "part_id": "17430a",
+                      "prompt": "Some ice cubes were dropped into a beaker of hot tea.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122606461",
+                      "part_id": "2792a",
+                      "prompt": "What change of state occurs in the ice blocks after 1 hour?",
+                      "student_answer": "melting",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Human Systems",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 54.5
+          },
+          "questions_attempted": 7,
+          "mistake_attempts": 4,
+          "subtopics": [
+            {
+              "subtopic_id": 571,
+              "subtopic": "Recognise how different human organ systems work together",
+              "attempt_count": 7,
+              "tags": [
+                {
+                  "tag": "review_with_teacher",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "113520405",
+                      "part_id": "1000551a",
+                      "prompt": "Which human system has a similar function as part F of the racket? Explain your answer.",
+                      "student_answer": "skeletal system because part F helps to support the racket .",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122605912",
+                      "part_id": "1014032b",
+                      "prompt": "State one function of system Z.",
+                      "student_answer": "help us move",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "110754932",
+                      "part_id": "1006365a",
+                      "prompt": "Which of the following systems in our body has the same function as the food conveyor belt? (1) skeletal system (2) muscular system (3) circulatory system (4) respiratory system",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "112333798",
+                      "part_id": "1006362b",
+                      "prompt": "State the function of the body system above.",
+                      "student_answer": "To help the person to breath",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "122605912",
+                      "part_id": "1014032b",
+                      "prompt": "State one function of system Z.",
+                      "student_answer": "help us move",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "110754932",
+                      "part_id": "1006365a",
+                      "prompt": "Which of the following systems in our body has the same function as the food conveyor belt? (1) skeletal system (2) muscular system (3) circulatory system (4) respiratory system",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "112333798",
+                      "part_id": "1006362b",
+                      "prompt": "State the function of the body system above.",
+                      "student_answer": "To help the person to breath",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "partial_understanding",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "113520405",
+                      "part_id": "1000551a",
+                      "prompt": "Which human system has a similar function as part F of the racket? Explain your answer.",
+                      "student_answer": "skeletal system because part F helps to support the racket .",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Life Cycles of Plants and Animals",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 71.4
+          },
+          "questions_attempted": 11,
+          "mistake_attempts": 3,
+          "subtopics": [
+            {
+              "subtopic_id": 552,
+              "subtopic": "Recognise different living things based on their life cycles",
+              "attempt_count": 11,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "109327322",
+                      "part_id": "1008836a",
+                      "prompt": "Which one of the following graphs shows the possible amount of food eaten during the different stages in the life cycle of a ladybird?",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 7.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "110131542",
+                      "part_id": "14855b",
+                      "prompt": "If stage V represents the adult stage of the moth, give one difference in characteristics between stages T and U.",
+                      "student_answer": "in stage U the mot is in egg stage but in stage T it is adult stage .",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 7.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "109457390",
+                      "part_id": "1020a",
+                      "prompt": "The diagram below shows how different animals are classified based on their characteristics.",
+                      "student_answer": "1 not sure",
+                      "mark": 3.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 7.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "109327322",
+                      "part_id": "1008836a",
+                      "prompt": "Which one of the following graphs shows the possible amount of food eaten during the different stages in the life cycle of a ladybird?",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 7.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "110131542",
+                      "part_id": "14855b",
+                      "prompt": "If stage V represents the adult stage of the moth, give one difference in characteristics between stages T and U.",
+                      "student_answer": "in stage U the mot is in egg stage but in stage T it is adult stage .",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 7.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "109457390",
+                      "part_id": "1020a",
+                      "prompt": "The diagram below shows how different animals are classified based on their characteristics.",
+                      "student_answer": "1 not sure",
+                      "mark": 3.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 7.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Light & Shadows",
+          "skill": {
+            "label": "Advanced",
+            "accuracy": 90.5
+          },
+          "questions_attempted": 12,
+          "mistake_attempts": 2,
+          "subtopics": [
+            {
+              "subtopic_id": 562,
+              "subtopic": "Recognise variables & factors in light-related experiment",
+              "attempt_count": 12,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "124509768",
+                      "part_id": "1013620a",
+                      "prompt": "In the box below, draw and shade completely the shadow that will be formed on the screen.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "110710370",
+                      "part_id": "51068b",
+                      "prompt": "Explain why Haslinda should not use a clear glass box for the experiment above.",
+                      "student_answer": "Not sure",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "124509768",
+                      "part_id": "1013620a",
+                      "prompt": "In the box below, draw and shade completely the shadow that will be formed on the screen.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "110710370",
+                      "part_id": "51068b",
+                      "prompt": "Explain why Haslinda should not use a clear glass box for the experiment above.",
+                      "student_answer": "Not sure",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "blank_response",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "124509768",
+                      "part_id": "1013620a",
+                      "prompt": "In the box below, draw and shade completely the shadow that will be formed on the screen.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Living Things and Non-Living Things",
+          "skill": {
+            "label": "Developing",
+            "accuracy": 40.0
+          },
+          "questions_attempted": 3,
+          "mistake_attempts": 2,
+          "subtopics": [
+            {
+              "subtopic_id": 574,
+              "subtopic": "Examples of living and non-living things*",
+              "attempt_count": 3,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "108617089",
+                      "part_id": "150a",
+                      "prompt": "Study the classification chart below carefully.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "111350430",
+                      "part_id": "226ii",
+                      "prompt": "X: ______________________________________________________________________ Y: ______________________________________________________________________ Z: ______________________________________________________________________",
+                      "student_answer": "X: fungi Y: reproduce by spores Z: reproduce by spores",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "108617089",
+                      "part_id": "150a",
+                      "prompt": "Study the classification chart below carefully.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "111350430",
+                      "part_id": "226ii",
+                      "prompt": "X: ______________________________________________________________________ Y: ______________________________________________________________________ Z: ______________________________________________________________________",
+                      "student_answer": "X: fungi Y: reproduce by spores Z: reproduce by spores",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Magnets",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 62.5
+          },
+          "questions_attempted": 11,
+          "mistake_attempts": 5,
+          "subtopics": [
+            {
+              "subtopic_id": 544,
+              "subtopic": "Recognise a freely suspended magnet rest in a N-S direction",
+              "attempt_count": 11,
+              "tags": [
+                {
+                  "tag": "review_with_teacher",
+                  "count": 5,
+                  "questions": [
+                    {
+                      "answer_id": "124509706",
+                      "part_id": "1006608a",
+                      "prompt": "Which containers will the iron and glass beads fall into?",
+                      "student_answer": "non magnetic materials",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124317244",
+                      "part_id": "1012168b",
+                      "prompt": "State another use of electromagnet.",
+                      "student_answer": "helps to separate magnetic and non magnetic materials .",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "109306331",
+                      "part_id": "2381a",
+                      "prompt": "Susan arranged some magnets as shown below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124317187",
+                      "part_id": "1012161a",
+                      "prompt": "Explain why the steel bar moved towards iron rod B.",
+                      "student_answer": "it had the most number of coils on iron rod B but A had the least number of coils .",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "112238289",
+                      "part_id": "2533a",
+                      "prompt": "Study the diagram below.",
+                      "student_answer": "A magnet can attract magnetic objects but when you heat it it will attract the least pins",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "124509706",
+                      "part_id": "1006608a",
+                      "prompt": "Which containers will the iron and glass beads fall into?",
+                      "student_answer": "non magnetic materials",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124317244",
+                      "part_id": "1012168b",
+                      "prompt": "State another use of electromagnet.",
+                      "student_answer": "helps to separate magnetic and non magnetic materials .",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "109306331",
+                      "part_id": "2381a",
+                      "prompt": "Susan arranged some magnets as shown below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "112238289",
+                      "part_id": "2533a",
+                      "prompt": "Study the diagram below.",
+                      "student_answer": "A magnet can attract magnetic objects but when you heat it it will attract the least pins",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "partial_understanding",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "124317187",
+                      "part_id": "1012161a",
+                      "prompt": "Explain why the steel bar moved towards iron rod B.",
+                      "student_answer": "it had the most number of coils on iron rod B but A had the least number of coils .",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Matter",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 70.0
+          },
+          "questions_attempted": 6,
+          "mistake_attempts": 3,
+          "subtopics": [
+            {
+              "subtopic_id": 555,
+              "subtopic": "Recognise how to measure mass & volume of matter",
+              "attempt_count": 6,
+              "tags": [
+                {
+                  "tag": "review_with_teacher",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "118952341",
+                      "part_id": "1016824b",
+                      "prompt": "Identify the state of matter that the iron block is in.",
+                      "student_answer": "the iron block occupied space",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 2.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122820830",
+                      "part_id": "1012182b",
+                      "prompt": "Which set-up, X or Y, will the water drip faster into the bottle? Explain your answer. Use claim, evidence, reasoning (CER) to answer the question.",
+                      "student_answer": "",
+                      "mark": 3.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 2.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124277513",
+                      "part_id": "1007045b",
+                      "prompt": "Ahmad used another balance to carry out an experiment with four different blocks, P, Q, R and S. The observations are shown below.",
+                      "student_answer": "S,Q,R",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 2.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "118952341",
+                      "part_id": "1016824b",
+                      "prompt": "Identify the state of matter that the iron block is in.",
+                      "student_answer": "the iron block occupied space",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 2.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124277513",
+                      "part_id": "1007045b",
+                      "prompt": "Ahmad used another balance to carry out an experiment with four different blocks, P, Q, R and S. The observations are shown below.",
+                      "student_answer": "S,Q,R",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 2.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "blank_response",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "122820830",
+                      "part_id": "1012182b",
+                      "prompt": "Which set-up, X or Y, will the water drip faster into the bottle? Explain your answer. Use claim, evidence, reasoning (CER) to answer the question.",
+                      "student_answer": "",
+                      "mark": 3.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 2.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "needs_revision",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "122820830",
+                      "part_id": "1012182b",
+                      "prompt": "Which set-up, X or Y, will the water drip faster into the bottle? Explain your answer. Use claim, evidence, reasoning (CER) to answer the question.",
+                      "student_answer": "",
+                      "mark": 3.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 2.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "partial_understanding",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "122820830",
+                      "part_id": "1012182b",
+                      "prompt": "Which set-up, X or Y, will the water drip faster into the bottle? Explain your answer. Use claim, evidence, reasoning (CER) to answer the question.",
+                      "student_answer": "",
+                      "mark": 3.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 2.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Plants",
+          "skill": {
+            "label": "Developing",
+            "accuracy": 0.0
+          },
+          "questions_attempted": 1,
+          "mistake_attempts": 1,
+          "subtopics": [
+            {
+              "subtopic_id": 575,
+              "subtopic": "Classify plants based on how they reproduce*",
+              "attempt_count": 1,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "110713018",
+                      "part_id": "93088a",
+                      "prompt": "The characteristics of some plants are shown in the table below. Plant Can make food Bears flowers Lives in water W $\\checkmark$ $\\checkmark$ X $\\checkmark$ $\\checkmark$ Y $\\checkmark$ $\\checkmark$ $\\checkmark$ Z $\\checkmark$",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "110713018",
+                      "part_id": "93088a",
+                      "prompt": "The characteristics of some plants are shown in the table below. Plant Can make food Bears flowers Lives in water W $\\checkmark$ $\\checkmark$ X $\\checkmark$ $\\checkmark$ Y $\\checkmark$ $\\checkmark$ $\\checkmark$ Z $\\checkmark$",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
       ]
     },
     {
-      "subtopic_id": 569,
-      "subject": "Science",
-      "topic": "Classification",
-      "subtopic": "Classify things based on their characteristics",
-      "attempts_considered": 2,
-      "tag_counts": [
+      "student_id": 191956,
+      "topics": [
         {
-          "tag": "blank_response",
-          "count": 1
-        },
-        {
-          "tag": "conceptual_gap",
-          "count": 2
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 2
-        }
-      ],
-      "students": [
-        {
-          "student_id": 181246,
-          "tag_counts": [
+          "subject": "Science",
+          "topic": "Electricity",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 56.2
+          },
+          "questions_attempted": 9,
+          "mistake_attempts": 6,
+          "subtopics": [
             {
-              "tag": "blank_response",
-              "count": 1
-            },
-            {
-              "tag": "conceptual_gap",
-              "count": 1
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 1
+              "subtopic_id": 559,
+              "subtopic": "Construct a circuit diagram based on information provided",
+              "attempt_count": 9,
+              "tags": [
+                {
+                  "tag": "review_with_teacher",
+                  "count": 5,
+                  "questions": [
+                    {
+                      "answer_id": "117783479",
+                      "part_id": "1011352a",
+                      "prompt": "Bulbs W, X and Y lit up when they were connected in a circuit as shown below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "118430367",
+                      "part_id": "1011661a",
+                      "prompt": "Bulbs P and Q are connected to a circuit as shown in diagram 1. The bulbs and batteries used are identical. Both bulbs light up with equal brightness. Bulb R is then connected to the circuit as shown in diagram 2.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "118430257",
+                      "part_id": "221162c",
+                      "prompt": "State one disadvantage of using the electric circuit in Eric\u2019s house.",
+                      "student_answer": "It will run out of electricity more frequently in Eric\u2019s house.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "118427934",
+                      "part_id": "46934c",
+                      "prompt": "Suggest a way to improve the circuit B to save electricity in his home?",
+                      "student_answer": "He should not make the bulb very bright.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "117784415",
+                      "part_id": "1011356a",
+                      "prompt": "The diagram below shows an electrical circuit.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 3.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "117783479",
+                      "part_id": "1011352a",
+                      "prompt": "Bulbs W, X and Y lit up when they were connected in a circuit as shown below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "118430367",
+                      "part_id": "1011661a",
+                      "prompt": "Bulbs P and Q are connected to a circuit as shown in diagram 1. The bulbs and batteries used are identical. Both bulbs light up with equal brightness. Bulb R is then connected to the circuit as shown in diagram 2.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "118430257",
+                      "part_id": "221162c",
+                      "prompt": "State one disadvantage of using the electric circuit in Eric\u2019s house.",
+                      "student_answer": "It will run out of electricity more frequently in Eric\u2019s house.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "118427934",
+                      "part_id": "46934c",
+                      "prompt": "Suggest a way to improve the circuit B to save electricity in his home?",
+                      "student_answer": "He should not make the bulb very bright.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "blank_response",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "117784705",
+                      "part_id": "1011357a",
+                      "prompt": "A circuit tester is connected to two points on a circuit card each time. The results are shown in the table below.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "117784415",
+                      "part_id": "1011356a",
+                      "prompt": "The diagram below shows an electrical circuit.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 3.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "partial_understanding",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "117784415",
+                      "part_id": "1011356a",
+                      "prompt": "The diagram below shows an electrical circuit.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 3.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         {
-          "student_id": 192153,
-          "tag_counts": [
+          "subject": "Science",
+          "topic": "Exploring Materials",
+          "skill": {
+            "label": "Developing",
+            "accuracy": 36.4
+          },
+          "questions_attempted": 7,
+          "mistake_attempts": 4,
+          "subtopics": [
             {
-              "tag": "conceptual_gap",
-              "count": 1
-            },
+              "subtopic_id": 567,
+              "subtopic": "Sources of materials: ground, animals, plants and man-made*",
+              "attempt_count": 7,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "110123543",
+                      "part_id": "16386a",
+                      "prompt": "Jason is a toymaker and he needs to design a new toy that is suitable for young children to play with in the sea and on the beach. Based on the table below, deduce which material is the most suitable for this toy. Material Heavy Light Sink in water Float in water Metal $\\checkmark$ $\\checkmark$ Cloth $\\checkmark$ $\\checkmark$ Glass $\\checkmark$ $\\checkmark$ Rubber $\\checkmark$ $\\checkmark$",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108735981",
+                      "part_id": "16398a",
+                      "prompt": "The flowchart below shows the properties of 4 different materials, K, L, M and N.",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "109576314",
+                      "part_id": "1002809a",
+                      "prompt": "Based on the results of the experiment above, which of the materials, J, K, L and M, is most suitable for making a swimming float? Explain your answer.",
+                      "student_answer": "K. As in order for a swimming float to float, it must be light. If it is heavy, it would not be able to float. Thus, K would be the best option.",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "109577331",
+                      "part_id": "1002809b",
+                      "prompt": "Besides the property identified in (a), state one other properties that the material should have for making a swimming float.",
+                      "student_answer": "it must be waterproof.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "110123543",
+                      "part_id": "16386a",
+                      "prompt": "Jason is a toymaker and he needs to design a new toy that is suitable for young children to play with in the sea and on the beach. Based on the table below, deduce which material is the most suitable for this toy. Material Heavy Light Sink in water Float in water Metal $\\checkmark$ $\\checkmark$ Cloth $\\checkmark$ $\\checkmark$ Glass $\\checkmark$ $\\checkmark$ Rubber $\\checkmark$ $\\checkmark$",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108735981",
+                      "part_id": "16398a",
+                      "prompt": "The flowchart below shows the properties of 4 different materials, K, L, M and N.",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "109576314",
+                      "part_id": "1002809a",
+                      "prompt": "Based on the results of the experiment above, which of the materials, J, K, L and M, is most suitable for making a swimming float? Explain your answer.",
+                      "student_answer": "K. As in order for a swimming float to float, it must be light. If it is heavy, it would not be able to float. Thus, K would be the best option.",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "109577331",
+                      "part_id": "1002809b",
+                      "prompt": "Besides the property identified in (a), state one other properties that the material should have for making a swimming float.",
+                      "student_answer": "it must be waterproof.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Heat & Effects of Heat",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 61.9
+          },
+          "questions_attempted": 11,
+          "mistake_attempts": 4,
+          "subtopics": [
             {
-              "tag": "review_with_teacher",
-              "count": 1
+              "subtopic_id": 558,
+              "subtopic": "Recognise factors that affect amount of heat an object has",
+              "attempt_count": 11,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "108488695",
+                      "part_id": "17359a",
+                      "prompt": "Study the set-up below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 6.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124654622",
+                      "part_id": "17403a",
+                      "prompt": "An empty flask fixed with a glass tube is wrapped with a piece of warm cloth. It is inverted with its glass tube placed in the tap water as shown below. 5 minutes later, a piece of cold cloth replaced the warm cloth.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 6.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108489274",
+                      "part_id": "17343a",
+                      "prompt": "Some houses in other countries are designed to withstand low temperatures during long winters. One such characteristic is shown below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 6.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108490473",
+                      "part_id": "17353a",
+                      "prompt": "Sarah wrapped two identical pieces of paper tightly around two rods, X and Y, separately as shown in the diagram below.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 6.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "108488695",
+                      "part_id": "17359a",
+                      "prompt": "Study the set-up below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 6.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124654622",
+                      "part_id": "17403a",
+                      "prompt": "An empty flask fixed with a glass tube is wrapped with a piece of warm cloth. It is inverted with its glass tube placed in the tap water as shown below. 5 minutes later, a piece of cold cloth replaced the warm cloth.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 6.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108489274",
+                      "part_id": "17343a",
+                      "prompt": "Some houses in other countries are designed to withstand low temperatures during long winters. One such characteristic is shown below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 6.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108490473",
+                      "part_id": "17353a",
+                      "prompt": "Sarah wrapped two identical pieces of paper tightly around two rods, X and Y, separately as shown in the diagram below.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 6.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Human Circulatory System",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 70.6
+          },
+          "questions_attempted": 9,
+          "mistake_attempts": 8,
+          "subtopics": [
+            {
+              "subtopic_id": 550,
+              "subtopic": "Compare transport systems in humans and plants*",
+              "attempt_count": 9,
+              "tags": [
+                {
+                  "tag": "needs_revision",
+                  "count": 7,
+                  "questions": [
+                    {
+                      "answer_id": "116151312",
+                      "part_id": "1008588a",
+                      "prompt": "The human circulatory system is made up of the ________________________. (1) heart, blood and blood vessels (2) lungs, gullet and blood vessels (3) lungs, windpipe and diaphragm (4) muscles, blood vessels and heart",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 1.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122160180",
+                      "part_id": "1833a",
+                      "prompt": "Which of the following are the functions of the circulatory system? A. Enables the body to move. B. Enables the exchange of gases with the surroundings. C. Carries oxygen and digested food to all parts of the body. D. Carries waste materials away from all parts of the body to be removed. (1) A and B only (2) B and C only (3) B and D only (4) C and D only",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 1.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116152617",
+                      "part_id": "1008595a",
+                      "prompt": "The table below shows Edwards\u2019s heart rate when he carries out three different activities. Activity Heart rate (beat per minute) X 60 Y 78 Z 105",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 1.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124531635",
+                      "part_id": "2145b",
+                      "prompt": "If animal Q is a fast-moving animal, give a possible adaptation of its heart that allows it to move that fast. Explain your answer.",
+                      "student_answer": "if animal q was a fast-moving animal, its heart will pump blood containing more digested food, water and oxygen at a faster rate.causing it to move that fast.",
+                      "mark": 3.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 1.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116400966",
+                      "part_id": "1008604a",
+                      "prompt": "The diagram below shows the four different systems in the human body.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 1.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116152571",
+                      "part_id": "1008591a",
+                      "prompt": "The diagram shows the direction of blood flow in some parts of the human body.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 1.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "114758281",
+                      "part_id": "49555a",
+                      "prompt": "Fishes take in and give out gases in the water using gills. Which of the following statements are correct? A. Blood flowing from the gills to the body is rich in oxygen. B. Gills have small surface area and they are rich in blood. C. Water containing dissolved gases enter the fish from under the gills cover. D. Carbon dioxide is removed from the blood in the gills and flows out into the water under the gills cover. (1) A and D (2) B and C (3) A, C and D (4) B, C and D",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 1.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "124531635",
+                      "part_id": "2145b",
+                      "prompt": "If animal Q is a fast-moving animal, give a possible adaptation of its heart that allows it to move that fast. Explain your answer.",
+                      "student_answer": "if animal q was a fast-moving animal, its heart will pump blood containing more digested food, water and oxygen at a faster rate.causing it to move that fast.",
+                      "mark": 3.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 1.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "114758281",
+                      "part_id": "49555a",
+                      "prompt": "Fishes take in and give out gases in the water using gills. Which of the following statements are correct? A. Blood flowing from the gills to the body is rich in oxygen. B. Gills have small surface area and they are rich in blood. C. Water containing dissolved gases enter the fish from under the gills cover. D. Carbon dioxide is removed from the blood in the gills and flows out into the water under the gills cover. (1) A and D (2) B and C (3) A, C and D (4) B, C and D",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 1.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "124531635",
+                      "part_id": "2145b",
+                      "prompt": "If animal Q is a fast-moving animal, give a possible adaptation of its heart that allows it to move that fast. Explain your answer.",
+                      "student_answer": "if animal q was a fast-moving animal, its heart will pump blood containing more digested food, water and oxygen at a faster rate.causing it to move that fast.",
+                      "mark": 3.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 1.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "114758281",
+                      "part_id": "49555a",
+                      "prompt": "Fishes take in and give out gases in the water using gills. Which of the following statements are correct? A. Blood flowing from the gills to the body is rich in oxygen. B. Gills have small surface area and they are rich in blood. C. Water containing dissolved gases enter the fish from under the gills cover. D. Carbon dioxide is removed from the blood in the gills and flows out into the water under the gills cover. (1) A and D (2) B and C (3) A, C and D (4) B, C and D",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 1.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "blank_response",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "122160304",
+                      "part_id": "2060b",
+                      "prompt": "Which of the arrow(s) represent the blood vessels that contain oxygen-rich blood? Label it or them with an 'X'.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 1.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Life Cycles of Plants and Animals",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 68.4
+          },
+          "questions_attempted": 10,
+          "mistake_attempts": 7,
+          "subtopics": [
+            {
+              "subtopic_id": 552,
+              "subtopic": "Recognise different living things based on their life cycles",
+              "attempt_count": 10,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "120002644",
+                      "part_id": "1013006a",
+                      "prompt": "The graph below shows the number of days for each stage of the life organisms W and X.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122032043",
+                      "part_id": "14855b",
+                      "prompt": "If stage V represents the adult stage of the moth, give one difference in characteristics between stages T and U.",
+                      "student_answer": "T is when the moth eats the most, whereas, U is when the moth would not eat at all.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122032706",
+                      "part_id": "60259c",
+                      "prompt": "There is a decrease in the mass of part X from stages 1 to 3. Explain why.",
+                      "student_answer": "As the young plant starts to grow, the seed leaf would not be needed to give the young plant food, water and mineral salts as there are true leaves already",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "120002542",
+                      "part_id": "1013007a",
+                      "prompt": "Write a suitable question for X in the flow chart above.",
+                      "student_answer": "Is it a mammal?",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "120002644",
+                      "part_id": "1013006a",
+                      "prompt": "The graph below shows the number of days for each stage of the life organisms W and X.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122032043",
+                      "part_id": "14855b",
+                      "prompt": "If stage V represents the adult stage of the moth, give one difference in characteristics between stages T and U.",
+                      "student_answer": "T is when the moth eats the most, whereas, U is when the moth would not eat at all.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122032706",
+                      "part_id": "60259c",
+                      "prompt": "There is a decrease in the mass of part X from stages 1 to 3. Explain why.",
+                      "student_answer": "As the young plant starts to grow, the seed leaf would not be needed to give the young plant food, water and mineral salts as there are true leaves already",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "120002542",
+                      "part_id": "1013007a",
+                      "prompt": "Write a suitable question for X in the flow chart above.",
+                      "student_answer": "Is it a mammal?",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "blank_response",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "120003218",
+                      "part_id": "1013007b",
+                      "prompt": "In the box below, draw a diagram of the life cycle of a mealworm beetle and label the stages.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122031044",
+                      "part_id": "1393a",
+                      "prompt": "Study the diagram given below. Write the names of the young in the boxes provided.",
+                      "student_answer": "",
+                      "mark": 3.0,
+                      "mark_awarded": 3.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122031044",
+                      "part_id": "1393a",
+                      "prompt": "Study the diagram given below. Write the names of the young in the boxes provided.",
+                      "student_answer": "",
+                      "mark": 3.0,
+                      "mark_awarded": 3.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Light & Shadows",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 63.6
+          },
+          "questions_attempted": 11,
+          "mistake_attempts": 4,
+          "subtopics": [
+            {
+              "subtopic_id": 562,
+              "subtopic": "Determine shadow based on shape, shape  location of object*",
+              "attempt_count": 11,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "108490512",
+                      "part_id": "17089a",
+                      "prompt": "Samuel put 4 similar empty glass beakers, A, B, C and D, at 4 different locations in a refrigerator. After a certain time, he took the beakers out of the refrigerator, one at a time. He shone light through it immediately and observed the shadow cast on the screen as shown in the diagram below.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108489993",
+                      "part_id": "17102a",
+                      "prompt": "An electric torch was placed at four different positions, A, B, C and D to form shadows on the screen.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124658996",
+                      "part_id": "31015b",
+                      "prompt": "Ken walks towards the tree. When he stops, facing the tree, will his shadow be in front of him or behind him? Explain your answer.",
+                      "student_answer": "Behind him. As when he is walking toward the tree, his body is blocking the light from passing through.",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108490197",
+                      "part_id": "17109a",
+                      "prompt": "David measured the length of the shadow of a pole at 4pm of a certain day.",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "108490512",
+                      "part_id": "17089a",
+                      "prompt": "Samuel put 4 similar empty glass beakers, A, B, C and D, at 4 different locations in a refrigerator. After a certain time, he took the beakers out of the refrigerator, one at a time. He shone light through it immediately and observed the shadow cast on the screen as shown in the diagram below.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108489993",
+                      "part_id": "17102a",
+                      "prompt": "An electric torch was placed at four different positions, A, B, C and D to form shadows on the screen.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124658996",
+                      "part_id": "31015b",
+                      "prompt": "Ken walks towards the tree. When he stops, facing the tree, will his shadow be in front of him or behind him? Explain your answer.",
+                      "student_answer": "Behind him. As when he is walking toward the tree, his body is blocking the light from passing through.",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108490197",
+                      "part_id": "17109a",
+                      "prompt": "David measured the length of the shadow of a pole at 4pm of a certain day.",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Matter",
+          "skill": {
+            "label": "Developing",
+            "accuracy": 45.5
+          },
+          "questions_attempted": 6,
+          "mistake_attempts": 3,
+          "subtopics": [
+            {
+              "subtopic_id": 555,
+              "subtopic": "Recognise how to measure mass & volume of matter",
+              "attempt_count": 6,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "108488815",
+                      "part_id": "7250a",
+                      "prompt": "The table below shows the properties of different matter at room temperature. Which one of the following describes the matter correctly?",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 8.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108488815",
+                      "part_id": "7250a",
+                      "prompt": "The table below shows the properties of different matter at room temperature. Which one of the following describes the matter correctly?",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 8.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108490366",
+                      "part_id": "1450a",
+                      "prompt": "Two identical syringes were fitted to a container with a capacity of 150 cm${^{3}}$ as shown in the diagram below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 8.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "108488815",
+                      "part_id": "7250a",
+                      "prompt": "The table below shows the properties of different matter at room temperature. Which one of the following describes the matter correctly?",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 8.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108488815",
+                      "part_id": "7250a",
+                      "prompt": "The table below shows the properties of different matter at room temperature. Which one of the following describes the matter correctly?",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 8.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108490366",
+                      "part_id": "1450a",
+                      "prompt": "Two identical syringes were fitted to a container with a capacity of 150 cm${^{3}}$ as shown in the diagram below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 8.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Reproduction in Humans",
+          "skill": {
+            "label": "Advanced",
+            "accuracy": 81.2
+          },
+          "questions_attempted": 10,
+          "mistake_attempts": 4,
+          "subtopics": [
+            {
+              "subtopic_id": 554,
+              "subtopic": "Identify umbilical cord and its function*",
+              "attempt_count": 10,
+              "tags": [
+                {
+                  "tag": "blank_response",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "110214744",
+                      "part_id": "48550a",
+                      "prompt": "In the picture below. Label the reproductive parts of the male reproduction system in the box.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "110214656",
+                      "part_id": "35480b",
+                      "prompt": "Name the cells labelled A and B.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "110214656",
+                      "part_id": "35480b",
+                      "prompt": "Name the cells labelled A and B.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "110214744",
+                      "part_id": "48550a",
+                      "prompt": "In the picture below. Label the reproductive parts of the male reproduction system in the box.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "110214514",
+                      "part_id": "1558a",
+                      "prompt": "Which of the following statements are true about sexual reproduction in both plants and animals? A. The male and female reproductive cells have to fuse for fertilisation to take place. B. Pollination takes place before fertilisation. C. The male reproductive cells are called sperms. D. The female reproductive cells are stored in the ovary. (1) A and D only (2) B and C only (3) A, B and C only (4) A, C and D only",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "110214744",
+                      "part_id": "48550a",
+                      "prompt": "In the picture below. Label the reproductive parts of the male reproduction system in the box.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "110214514",
+                      "part_id": "1558a",
+                      "prompt": "Which of the following statements are true about sexual reproduction in both plants and animals? A. The male and female reproductive cells have to fuse for fertilisation to take place. B. Pollination takes place before fertilisation. C. The male reproductive cells are called sperms. D. The female reproductive cells are stored in the ovary. (1) A and D only (2) B and C only (3) A, B and C only (4) A, C and D only",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Reproduction in Plants",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 63.6
+          },
+          "questions_attempted": 7,
+          "mistake_attempts": 3,
+          "subtopics": [
+            {
+              "subtopic_id": 573,
+              "subtopic": "Recognise the characteristics of water dispersal",
+              "attempt_count": 7,
+              "tags": [
+                {
+                  "tag": "review_with_teacher",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "110817413",
+                      "part_id": "30968b",
+                      "prompt": "Support your choice in part (a) with a reason.",
+                      "student_answer": "A The anthers and stigmas are dangling out of the flower which will be easier for the wind to blow I to a different place away from the oarent plant to be dispersed. B The antlers and stigmas are kept inside the flower and it has colorful, petals with juicy fruits.",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "109377382",
+                      "part_id": "1004062a",
+                      "prompt": "Which of the flower(s) will definitely not be able to develop into a fruit? (1) C only (2) A and B only (3) C and D only (4) A, B and D only",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122155050",
+                      "part_id": "45464a",
+                      "prompt": "State the method of dispersal of fruits/seeds of plant X and Y. Give an explanation for each of your answer.",
+                      "student_answer": "X: water dispersal The young plant of plant X are found along the river bank. Y: animal dispersal They are found anywhere away from the parent plant",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "partial_understanding",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "110817413",
+                      "part_id": "30968b",
+                      "prompt": "Support your choice in part (a) with a reason.",
+                      "student_answer": "A The anthers and stigmas are dangling out of the flower which will be easier for the wind to blow I to a different place away from the oarent plant to be dispersed. B The antlers and stigmas are kept inside the flower and it has colorful, petals with juicy fruits.",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "122155050",
+                      "part_id": "45464a",
+                      "prompt": "State the method of dispersal of fruits/seeds of plant X and Y. Give an explanation for each of your answer.",
+                      "student_answer": "X: water dispersal The young plant of plant X are found along the river bank. Y: animal dispersal They are found anywhere away from the parent plant",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "109377382",
+                      "part_id": "1004062a",
+                      "prompt": "Which of the flower(s) will definitely not be able to develop into a fruit? (1) C only (2) A and B only (3) C and D only (4) A, B and D only",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 9.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Respiratory Systems in Living Things",
+          "skill": {
+            "label": "Advanced",
+            "accuracy": 82.4
+          },
+          "questions_attempted": 9,
+          "mistake_attempts": 2,
+          "subtopics": [
+            {
+              "subtopic_id": 548,
+              "subtopic": "Testing for carbon dioxide using lime water*",
+              "attempt_count": 9,
+              "tags": [
+                {
+                  "tag": "review_with_teacher",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "115333367",
+                      "part_id": "1007054a",
+                      "prompt": "Study the respiratory systems of a human and a fish shown in the diagram below.",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "117787371",
+                      "part_id": "53906a",
+                      "prompt": "Perry placed two healthy mice separately in clear, plastic tanks. Each tank is connected to a test-tube of limewater. He added an exercise wheel in the tank for set-up B.",
+                      "student_answer": "When the mice in set-up B was exercising, more oxygen was taken in by the mice and more carbon dioxide was released. Thus, the limewater in set up B turned chalky faster than the mice in set up A.",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "115333367",
+                      "part_id": "1007054a",
+                      "prompt": "Study the respiratory systems of a human and a fish shown in the diagram below.",
+                      "student_answer": "B",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "partial_understanding",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "117787371",
+                      "part_id": "53906a",
+                      "prompt": "Perry placed two healthy mice separately in clear, plastic tanks. Each tank is connected to a test-tube of limewater. He added an exercise wheel in the tank for set-up B.",
+                      "student_answer": "When the mice in set-up B was exercising, more oxygen was taken in by the mice and more carbon dioxide was released. Thus, the limewater in set up B turned chalky faster than the mice in set up A.",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subject": "Science",
+          "topic": "Water & the Water Cycle",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 55.6
+          },
+          "questions_attempted": 11,
+          "mistake_attempts": 4,
+          "subtopics": [
+            {
+              "subtopic_id": 547,
+              "subtopic": "Recognise how heat loss causes condensation of water vapour",
+              "attempt_count": 11,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "124656673",
+                      "part_id": "59302a",
+                      "prompt": "Ali just finished swimming in a swimming pool. When he got out of the pool, he realised that he felt colder when he was outside the pool than being in the water. Which of the following best explains Ali's observation? (1) His body lost heat slower to the surrounding slower than to the water in the swimming pool. (2) The rate of condensation on his body is faster when he was out of the pool. (3) The water on his body gained heat from his body and evaporated when he was out of the pool. (4) His body gained heat when he was out of the pool.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124656418",
+                      "part_id": "1689a",
+                      "prompt": "Which of the following about boiling and evaporation of water is false ? Boiling Evaporation (1) water changes to steam water changes to water vapour (2) takes place at a fixed temperature takes place at any temperature (3) gains heat from the surrounding air gains heat from a heat source (4) takes place throughout the liquid takes place only at the surface of the liquid",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124657742",
+                      "part_id": "30864a",
+                      "prompt": "Explain how the water was formed in the cup.",
+                      "student_answer": "The water from the sponge gain heat from the sun and evaporated into warm water vapour which then came in contact with the underside of the plastic sheet, lost heat and condensed to tiny water droplets which then dripped into the cup.",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124656562",
+                      "part_id": "72117a",
+                      "prompt": "Three blocks of ice cubes were left on the table at the same time.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "124656673",
+                      "part_id": "59302a",
+                      "prompt": "Ali just finished swimming in a swimming pool. When he got out of the pool, he realised that he felt colder when he was outside the pool than being in the water. Which of the following best explains Ali's observation? (1) His body lost heat slower to the surrounding slower than to the water in the swimming pool. (2) The rate of condensation on his body is faster when he was out of the pool. (3) The water on his body gained heat from his body and evaporated when he was out of the pool. (4) His body gained heat when he was out of the pool.",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124656418",
+                      "part_id": "1689a",
+                      "prompt": "Which of the following about boiling and evaporation of water is false ? Boiling Evaporation (1) water changes to steam water changes to water vapour (2) takes place at a fixed temperature takes place at any temperature (3) gains heat from the surrounding air gains heat from a heat source (4) takes place throughout the liquid takes place only at the surface of the liquid",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124657742",
+                      "part_id": "30864a",
+                      "prompt": "Explain how the water was formed in the cup.",
+                      "student_answer": "The water from the sponge gain heat from the sun and evaporated into warm water vapour which then came in contact with the underside of the plastic sheet, lost heat and condensed to tiny water droplets which then dripped into the cup.",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "124656562",
+                      "part_id": "72117a",
+                      "prompt": "Three blocks of ice cubes were left on the table at the same time.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
       ]
     },
     {
-      "subtopic_id": 549,
-      "subject": "Science",
-      "topic": "Digestive System",
-      "subtopic": "Recognise function of stomach in digestive system",
-      "attempts_considered": 3,
-      "tag_counts": [
+      "student_id": 181246,
+      "topics": [
         {
-          "tag": "conceptual_gap",
-          "count": 1
-        },
-        {
-          "tag": "partial_understanding",
-          "count": 2
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 3
-        }
-      ],
-      "students": [
-        {
-          "student_id": 192153,
-          "tag_counts": [
+          "subject": "Science",
+          "topic": "Animals",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 79.4
+          },
+          "questions_attempted": 19,
+          "mistake_attempts": 5,
+          "subtopics": [
             {
-              "tag": "conceptual_gap",
-              "count": 1
-            },
-            {
-              "tag": "partial_understanding",
-              "count": 2
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 559,
-      "subject": "Science",
-      "topic": "Electricity",
-      "subtopic": "Recognise closed and open electric circuits",
-      "attempts_considered": 5,
-      "tag_counts": [
-        {
-          "tag": "blank_response",
-          "count": 1
-        },
-        {
-          "tag": "conceptual_gap",
-          "count": 4
-        },
-        {
-          "tag": "partial_understanding",
-          "count": 1
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 5
-        }
-      ],
-      "students": [
-        {
-          "student_id": 191956,
-          "tag_counts": [
-            {
-              "tag": "blank_response",
-              "count": 1
-            },
-            {
-              "tag": "conceptual_gap",
-              "count": 4
-            },
-            {
-              "tag": "partial_understanding",
-              "count": 1
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 5
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 567,
-      "subject": "Science",
-      "topic": "Exploring Materials",
-      "subtopic": "Compare the physical property (strength) of materials",
-      "attempts_considered": 12,
-      "tag_counts": [
-        {
-          "tag": "conceptual_gap",
-          "count": 11
-        },
-        {
-          "tag": "partial_understanding",
-          "count": 1
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 12
-        }
-      ],
-      "students": [
-        {
-          "student_id": 181246,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 4
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 4
-            }
-          ]
-        },
-        {
-          "student_id": 191956,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 4
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 4
-            }
-          ]
-        },
-        {
-          "student_id": 192153,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 3
-            },
-            {
-              "tag": "partial_understanding",
-              "count": 1
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 4
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 568,
-      "subject": "Science",
-      "topic": "Fungi and Bacteria",
-      "subtopic": "Identify the useful & harmful effects of fungi and bacteria.",
-      "attempts_considered": 8,
-      "tag_counts": [
-        {
-          "tag": "conceptual_gap",
-          "count": 8
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 8
-        }
-      ],
-      "students": [
-        {
-          "student_id": 181246,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 7
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 7
+              "subtopic_id": 570,
+              "subtopic": "Classify animal that are exception from their animal group*",
+              "attempt_count": 19,
+              "tags": [
+                {
+                  "tag": "review_with_teacher",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "106475935",
+                      "part_id": "91769a",
+                      "prompt": "Give a suitable heading for group A and group B.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108635172",
+                      "part_id": "48258a",
+                      "prompt": "Study the following animals carefully and classify them equally into two groups. Give a heading for each group.",
+                      "student_answer": "Wild animals - tiger and eagle Domestic - pig and dog",
+                      "mark": 4.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108823269",
+                      "part_id": "680a",
+                      "prompt": "Which of the following animals breathe through their skin? A: bat B: frog C: whale D: salamander (1) A and C only (2) B and C only (3) B and D only (4) A, B and D only",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "105220498",
+                      "part_id": "1028a",
+                      "prompt": "Study the classification chart below. Write down a suitable heading for each of the boxes.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "blank_response",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "106475935",
+                      "part_id": "91769a",
+                      "prompt": "Give a suitable heading for group A and group B.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "104856321",
+                      "part_id": "1025a",
+                      "prompt": "Study the information of animals P, Q, R and S given in the table below. Animal Body is covered with hair or fur or feathers Reproduces by laying eggs Has three body parts Has gills for breathing P No Yes No Yes Q No Yes Yes No R Yes No No No S Yes Yes No No",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "105220498",
+                      "part_id": "1028a",
+                      "prompt": "Study the classification chart below. Write down a suitable heading for each of the boxes.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "106475935",
+                      "part_id": "91769a",
+                      "prompt": "Give a suitable heading for group A and group B.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108823269",
+                      "part_id": "680a",
+                      "prompt": "Which of the following animals breathe through their skin? A: bat B: frog C: whale D: salamander (1) A and C only (2) B and C only (3) B and D only (4) A, B and D only",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "105220498",
+                      "part_id": "1028a",
+                      "prompt": "Study the classification chart below. Write down a suitable heading for each of the boxes.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "partial_understanding",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "108635172",
+                      "part_id": "48258a",
+                      "prompt": "Study the following animals carefully and classify them equally into two groups. Give a heading for each group.",
+                      "student_answer": "Wild animals - tiger and eagle Domestic - pig and dog",
+                      "mark": 4.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         {
-          "student_id": 192153,
-          "tag_counts": [
+          "subject": "Science",
+          "topic": "Classification",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 75.0
+          },
+          "questions_attempted": 4,
+          "mistake_attempts": 2,
+          "subtopics": [
             {
-              "tag": "conceptual_gap",
-              "count": 1
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 558,
-      "subject": "Science",
-      "topic": "Heat & Effects of Heat",
-      "subtopic": "Recognise how heat flows from one region to another",
-      "attempts_considered": 12,
-      "tag_counts": [
-        {
-          "tag": "conceptual_gap",
-          "count": 12
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 12
-        }
-      ],
-      "students": [
-        {
-          "student_id": 191956,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 4
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 4
-            }
-          ]
-        },
-        {
-          "student_id": 192153,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 8
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 550,
-      "subject": "Science",
-      "topic": "Human Circulatory System",
-      "subtopic": "Understand the purpose of increased heart rate*",
-      "attempts_considered": 2,
-      "tag_counts": [
-        {
-          "tag": "conceptual_gap",
-          "count": 2
-        },
-        {
-          "tag": "needs_revision",
-          "count": 2
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 2
-        }
-      ],
-      "students": [
-        {
-          "student_id": 191956,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 2
-            },
-            {
-              "tag": "needs_revision",
-              "count": 2
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 571,
-      "subject": "Science",
-      "topic": "Human Systems",
-      "subtopic": "Recognise parts and function of human skeletal system",
-      "attempts_considered": 4,
-      "tag_counts": [
-        {
-          "tag": "conceptual_gap",
-          "count": 3
-        },
-        {
-          "tag": "partial_understanding",
-          "count": 1
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 4
-        }
-      ],
-      "students": [
-        {
-          "student_id": 192153,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 3
-            },
-            {
-              "tag": "partial_understanding",
-              "count": 1
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 4
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 552,
-      "subject": "Science",
-      "topic": "Life Cycles of Plants and Animals",
-      "subtopic": "Recognise stages of animals that have a 4-stage life cycle",
-      "attempts_considered": 15,
-      "tag_counts": [
-        {
-          "tag": "conceptual_gap",
-          "count": 15
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 15
-        }
-      ],
-      "students": [
-        {
-          "student_id": 181246,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 8
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 8
+              "subtopic_id": 569,
+              "subtopic": "Use process skills to answer experimental-related questions",
+              "attempt_count": 4,
+              "tags": [
+                {
+                  "tag": "blank_response",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "108445417",
+                      "part_id": "12a",
+                      "prompt": "Help Martha to complete the classification chart by drawing the objects in the boxes provided.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "110168205",
+                      "part_id": "1012185a",
+                      "prompt": "Match the command words to the correct description.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "108445417",
+                      "part_id": "12a",
+                      "prompt": "Help Martha to complete the classification chart by drawing the objects in the boxes provided.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "108445417",
+                      "part_id": "12a",
+                      "prompt": "Help Martha to complete the classification chart by drawing the objects in the boxes provided.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         {
-          "student_id": 191956,
-          "tag_counts": [
+          "subject": "Science",
+          "topic": "Exploring Materials",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 61.1
+          },
+          "questions_attempted": 11,
+          "mistake_attempts": 4,
+          "subtopics": [
             {
-              "tag": "conceptual_gap",
-              "count": 4
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 4
+              "subtopic_id": 567,
+              "subtopic": "Use process skills to answer experimental-related questions",
+              "attempt_count": 11,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "113313760",
+                      "part_id": "1293a",
+                      "prompt": "Which material is the weakest?",
+                      "student_answer": "A",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113314143",
+                      "part_id": "1273b",
+                      "prompt": "Write down one significant characteristic of the material you mentioned in (a) that makes it suitable to make X. Explain why the characteristic is important for the spectacles.",
+                      "student_answer": "Plastic as it will not break easily,and not bend easily.",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113313855",
+                      "part_id": "1293b",
+                      "prompt": "Which of the material(s) above can be used to make a bookshelf that can withstand a maximum load of up to 7kg? Explain your answer.",
+                      "student_answer": "Material Z as it can support a 10kg mass. It will be able to support the weight of the books which are 7 kg",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113331251",
+                      "part_id": "1006181a",
+                      "prompt": "Shaun wanted to find out how the height a ball is dropped from affects its bouncing height. Ball A Ball B Ball C Ball D Material rubber plastic rubber plastic Size big medium big small Colour green red blue yellow Mass (g) 10 5 10 5 Height the ball is dropped from (m) 1 2 3 2 Which two balls in the table above should he choose in order to carry out a fair test? (1) A and B (2) A and C (3) B and C (4) B and D",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "113313760",
+                      "part_id": "1293a",
+                      "prompt": "Which material is the weakest?",
+                      "student_answer": "A",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113314143",
+                      "part_id": "1273b",
+                      "prompt": "Write down one significant characteristic of the material you mentioned in (a) that makes it suitable to make X. Explain why the characteristic is important for the spectacles.",
+                      "student_answer": "Plastic as it will not break easily,and not bend easily.",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113313855",
+                      "part_id": "1293b",
+                      "prompt": "Which of the material(s) above can be used to make a bookshelf that can withstand a maximum load of up to 7kg? Explain your answer.",
+                      "student_answer": "Material Z as it can support a 10kg mass. It will be able to support the weight of the books which are 7 kg",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113331251",
+                      "part_id": "1006181a",
+                      "prompt": "Shaun wanted to find out how the height a ball is dropped from affects its bouncing height. Ball A Ball B Ball C Ball D Material rubber plastic rubber plastic Size big medium big small Colour green red blue yellow Mass (g) 10 5 10 5 Height the ball is dropped from (m) 1 2 3 2 Which two balls in the table above should he choose in order to carry out a fair test? (1) A and B (2) A and C (3) B and C (4) B and D",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         {
-          "student_id": 192153,
-          "tag_counts": [
+          "subject": "Science",
+          "topic": "Fungi and Bacteria",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 50.0
+          },
+          "questions_attempted": 12,
+          "mistake_attempts": 7,
+          "subtopics": [
             {
-              "tag": "conceptual_gap",
-              "count": 3
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 562,
-      "subject": "Science",
-      "topic": "Light & Shadows",
-      "subtopic": "Relate size & shape of shadow to position of object & light",
-      "attempts_considered": 6,
-      "tag_counts": [
-        {
-          "tag": "blank_response",
-          "count": 1
-        },
-        {
-          "tag": "conceptual_gap",
-          "count": 6
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 6
-        }
-      ],
-      "students": [
-        {
-          "student_id": 191956,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 4
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 4
-            }
-          ]
-        },
-        {
-          "student_id": 192153,
-          "tag_counts": [
-            {
-              "tag": "blank_response",
-              "count": 1
-            },
-            {
-              "tag": "conceptual_gap",
-              "count": 2
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 574,
-      "subject": "Science",
-      "topic": "Living Things and Non-Living Things",
-      "subtopic": "Differentiate between living and non-living things.",
-      "attempts_considered": 8,
-      "tag_counts": [
-        {
-          "tag": "blank_response",
-          "count": 2
-        },
-        {
-          "tag": "conceptual_gap",
-          "count": 4
-        },
-        {
-          "tag": "partial_understanding",
-          "count": 4
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 8
-        }
-      ],
-      "students": [
-        {
-          "student_id": 181246,
-          "tag_counts": [
-            {
-              "tag": "blank_response",
-              "count": 2
-            },
-            {
-              "tag": "conceptual_gap",
-              "count": 2
-            },
-            {
-              "tag": "partial_understanding",
-              "count": 4
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 6
-            }
-          ]
-        },
-        {
-          "student_id": 192153,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 2
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 544,
-      "subject": "Science",
-      "topic": "Magnets",
-      "subtopic": "Recognise that magnets attract magnetic materials",
-      "attempts_considered": 10,
-      "tag_counts": [
-        {
-          "tag": "blank_response",
-          "count": 2
-        },
-        {
-          "tag": "conceptual_gap",
-          "count": 7
-        },
-        {
-          "tag": "partial_understanding",
-          "count": 3
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 10
-        }
-      ],
-      "students": [
-        {
-          "student_id": 181246,
-          "tag_counts": [
-            {
-              "tag": "blank_response",
-              "count": 2
-            },
-            {
-              "tag": "conceptual_gap",
-              "count": 3
-            },
-            {
-              "tag": "partial_understanding",
-              "count": 2
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 5
+              "subtopic_id": 568,
+              "subtopic": "Use process skills to answer experimental-related questions",
+              "attempt_count": 12,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 7,
+                  "questions": [
+                    {
+                      "answer_id": "113334254",
+                      "part_id": "16484a",
+                      "prompt": "Which of the following statements is not true of bacteria? (1) Bacteria do not need air, food and water. (2) Some bacteria can help us to digest food. (3) Some bacteria can help turn milk into cheese. (4) Some bacteria can cause illnesses such as sore throat.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108101184",
+                      "part_id": "16512c",
+                      "prompt": "Some fungi like toadstools are inedible because they are poisonous. However, others can be useful to people. Give an example of a fungus that is useful and state its usefulness.",
+                      "student_answer": "Mushrooms help us grow",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113334758",
+                      "part_id": "16505a",
+                      "prompt": "What do you think would be Tom's most likely observation?",
+                      "student_answer": "There will be mould growing on the bread.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113334522",
+                      "part_id": "272a",
+                      "prompt": "Name Part A and Part B.",
+                      "student_answer": "Cap",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108445720",
+                      "part_id": "16457a",
+                      "prompt": "Which of the following statement/s about the bird's nest fern and mushrooms is/are true? A: They both reproduce by spores. B: They both make their own food. C: Both require the wind to ensure that their offspring do not grow in an overcrowded environment. (1) A only (2) A and B only (3) A and C only (4) A, B and C",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108102476",
+                      "part_id": "1010704a",
+                      "prompt": "What are the characteristics of organism K?",
+                      "student_answer": "K can't move freely on its own and it reproduces by seeds.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108770609",
+                      "part_id": "1012774b",
+                      "prompt": "State the aim of Jeremy\u2019s experiment.",
+                      "student_answer": "To see if living things need water",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 7,
+                  "questions": [
+                    {
+                      "answer_id": "113334254",
+                      "part_id": "16484a",
+                      "prompt": "Which of the following statements is not true of bacteria? (1) Bacteria do not need air, food and water. (2) Some bacteria can help us to digest food. (3) Some bacteria can help turn milk into cheese. (4) Some bacteria can cause illnesses such as sore throat.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108101184",
+                      "part_id": "16512c",
+                      "prompt": "Some fungi like toadstools are inedible because they are poisonous. However, others can be useful to people. Give an example of a fungus that is useful and state its usefulness.",
+                      "student_answer": "Mushrooms help us grow",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113334758",
+                      "part_id": "16505a",
+                      "prompt": "What do you think would be Tom's most likely observation?",
+                      "student_answer": "There will be mould growing on the bread.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113334522",
+                      "part_id": "272a",
+                      "prompt": "Name Part A and Part B.",
+                      "student_answer": "Cap",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108445720",
+                      "part_id": "16457a",
+                      "prompt": "Which of the following statement/s about the bird's nest fern and mushrooms is/are true? A: They both reproduce by spores. B: They both make their own food. C: Both require the wind to ensure that their offspring do not grow in an overcrowded environment. (1) A only (2) A and B only (3) A and C only (4) A, B and C",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108102476",
+                      "part_id": "1010704a",
+                      "prompt": "What are the characteristics of organism K?",
+                      "student_answer": "K can't move freely on its own and it reproduces by seeds.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108770609",
+                      "part_id": "1012774b",
+                      "prompt": "State the aim of Jeremy\u2019s experiment.",
+                      "student_answer": "To see if living things need water",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 4.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         {
-          "student_id": 192153,
-          "tag_counts": [
+          "subject": "Science",
+          "topic": "Life Cycles of Plants and Animals",
+          "skill": {
+            "label": "Developing",
+            "accuracy": 43.5
+          },
+          "questions_attempted": 14,
+          "mistake_attempts": 8,
+          "subtopics": [
             {
-              "tag": "conceptual_gap",
-              "count": 4
-            },
-            {
-              "tag": "partial_understanding",
-              "count": 1
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 5
+              "subtopic_id": 552,
+              "subtopic": "Use process skills to answer experimental-related questions",
+              "attempt_count": 14,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 8,
+                  "questions": [
+                    {
+                      "answer_id": "116971391",
+                      "part_id": "14711a",
+                      "prompt": "The graph below shows the stages in the life cycle of an insect and the length of time the insect remains at each stage of its life cycle.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116971223",
+                      "part_id": "14673a",
+                      "prompt": "Study the life cycles below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "114366134",
+                      "part_id": "1007620a",
+                      "prompt": "Which of the following correctly shows the similarity and difference between the adult cockroach and its young? Similarity Difference (1) Both have wings. The adult cockroach moults while the young does not. (2) Both can reproduce. The adult cockroach has a pair of feelers but the young does not. (3) Both have three pairs of legs. The adult cockroach has wings but the young does not. (4) Both have three pairs of legs. The young of the cockroach looks different from the adult.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116971213",
+                      "part_id": "14763a",
+                      "prompt": "Which one of the following is the life cycle of grasshopper correctly drawn?",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116971243",
+                      "part_id": "14740a",
+                      "prompt": "At which stage in a life cycle of a butterfly will it shed its old skin? (1) egg (2) larva (3) pupa (4) adult",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "114410835",
+                      "part_id": "1010688b",
+                      "prompt": "Which animal, A, B, C or D represents a frog? Explain your answer.",
+                      "student_answer": "Group C as a Froggy have four stages in its life cycle and lays eggs in water.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116481717",
+                      "part_id": "1011956a",
+                      "prompt": "Explain how by laying many eggs each time can help insect X in their survival.",
+                      "student_answer": "It ensures continuity of their kind.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116481680",
+                      "part_id": "1008840a",
+                      "prompt": "What variable was changed in this experiment?",
+                      "student_answer": "The number of time",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 8,
+                  "questions": [
+                    {
+                      "answer_id": "116971391",
+                      "part_id": "14711a",
+                      "prompt": "The graph below shows the stages in the life cycle of an insect and the length of time the insect remains at each stage of its life cycle.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116971223",
+                      "part_id": "14673a",
+                      "prompt": "Study the life cycles below.",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "114366134",
+                      "part_id": "1007620a",
+                      "prompt": "Which of the following correctly shows the similarity and difference between the adult cockroach and its young? Similarity Difference (1) Both have wings. The adult cockroach moults while the young does not. (2) Both can reproduce. The adult cockroach has a pair of feelers but the young does not. (3) Both have three pairs of legs. The adult cockroach has wings but the young does not. (4) Both have three pairs of legs. The young of the cockroach looks different from the adult.",
+                      "student_answer": "D",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116971213",
+                      "part_id": "14763a",
+                      "prompt": "Which one of the following is the life cycle of grasshopper correctly drawn?",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116971243",
+                      "part_id": "14740a",
+                      "prompt": "At which stage in a life cycle of a butterfly will it shed its old skin? (1) egg (2) larva (3) pupa (4) adult",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "114410835",
+                      "part_id": "1010688b",
+                      "prompt": "Which animal, A, B, C or D represents a frog? Explain your answer.",
+                      "student_answer": "Group C as a Froggy have four stages in its life cycle and lays eggs in water.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116481717",
+                      "part_id": "1011956a",
+                      "prompt": "Explain how by laying many eggs each time can help insect X in their survival.",
+                      "student_answer": "It ensures continuity of their kind.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "116481680",
+                      "part_id": "1008840a",
+                      "prompt": "What variable was changed in this experiment?",
+                      "student_answer": "The number of time",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 555,
-      "subject": "Science",
-      "topic": "Matter",
-      "subtopic": "Recognise the properties of a solid",
-      "attempts_considered": 6,
-      "tag_counts": [
-        {
-          "tag": "blank_response",
-          "count": 1
         },
         {
-          "tag": "conceptual_gap",
-          "count": 5
-        },
-        {
-          "tag": "needs_revision",
-          "count": 1
-        },
-        {
-          "tag": "partial_understanding",
-          "count": 1
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 6
-        }
-      ],
-      "students": [
-        {
-          "student_id": 191956,
-          "tag_counts": [
+          "subject": "Science",
+          "topic": "Living Things and Non-Living Things",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 67.6
+          },
+          "questions_attempted": 14,
+          "mistake_attempts": 8,
+          "subtopics": [
             {
-              "tag": "conceptual_gap",
-              "count": 3
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 3
+              "subtopic_id": 574,
+              "subtopic": "Identify characteristics of living things from observations",
+              "attempt_count": 14,
+              "tags": [
+                {
+                  "tag": "review_with_teacher",
+                  "count": 6,
+                  "questions": [
+                    {
+                      "answer_id": "105348313",
+                      "part_id": "92067a",
+                      "prompt": "Classify the following organisms correctly in the classification chart below.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108414840",
+                      "part_id": "17700a",
+                      "prompt": "Based on Keegan's observation, state one characteristic of living things.",
+                      "student_answer": "Living things, need air, food, and water to survive",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "105348313",
+                      "part_id": "92067a",
+                      "prompt": "Classify the following organisms correctly in the classification chart below.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108803213",
+                      "part_id": "80a",
+                      "prompt": "What is the difference between a bird and a tree? Bird Tree (1) Can reproduce Cannot reproduce (2) Able to grow Unable to grow (3) Respond to changes quickly Respond to changes slowly (4) Need air, food and water Does not need air, food and water",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108783369",
+                      "part_id": "279b",
+                      "prompt": "Explain your answer in part (a).",
+                      "student_answer": "Grass as it can\u2019t move from place to place by itself",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108444505",
+                      "part_id": "92328a",
+                      "prompt": "State three characteristics of organism B.",
+                      "student_answer": "Organism B can make its own food and can respond to changes.",
+                      "mark": 3.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "blank_response",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "105348313",
+                      "part_id": "92067a",
+                      "prompt": "Classify the following organisms correctly in the classification chart below.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "105348313",
+                      "part_id": "92067a",
+                      "prompt": "Classify the following organisms correctly in the classification chart below.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108801610",
+                      "part_id": "261a",
+                      "prompt": "Group the living things given in the box correctly in the classification chart below.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 4.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108414986",
+                      "part_id": "1006191a",
+                      "prompt": "Match each of the following scenarios to its respective characteristics of living things.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "partial_understanding",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "105348313",
+                      "part_id": "92067a",
+                      "prompt": "Classify the following organisms correctly in the classification chart below.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "105348313",
+                      "part_id": "92067a",
+                      "prompt": "Classify the following organisms correctly in the classification chart below.",
+                      "student_answer": "",
+                      "mark": 4.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108783369",
+                      "part_id": "279b",
+                      "prompt": "Explain your answer in part (a).",
+                      "student_answer": "Grass as it can\u2019t move from place to place by itself",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108444505",
+                      "part_id": "92328a",
+                      "prompt": "State three characteristics of organism B.",
+                      "student_answer": "Organism B can make its own food and can respond to changes.",
+                      "mark": 3.0,
+                      "mark_awarded": 2.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "108414840",
+                      "part_id": "17700a",
+                      "prompt": "Based on Keegan's observation, state one characteristic of living things.",
+                      "student_answer": "Living things, need air, food, and water to survive",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108803213",
+                      "part_id": "80a",
+                      "prompt": "What is the difference between a bird and a tree? Bird Tree (1) Can reproduce Cannot reproduce (2) Able to grow Unable to grow (3) Respond to changes quickly Respond to changes slowly (4) Need air, food and water Does not need air, food and water",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         {
-          "student_id": 192153,
-          "tag_counts": [
+          "subject": "Science",
+          "topic": "Magnets",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 66.7
+          },
+          "questions_attempted": 11,
+          "mistake_attempts": 5,
+          "subtopics": [
             {
-              "tag": "blank_response",
-              "count": 1
-            },
-            {
-              "tag": "conceptual_gap",
-              "count": 2
-            },
-            {
-              "tag": "needs_revision",
-              "count": 1
-            },
-            {
-              "tag": "partial_understanding",
-              "count": 1
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 3
+              "subtopic_id": 544,
+              "subtopic": "Use process skills to answer experimental-related questions",
+              "attempt_count": 11,
+              "tags": [
+                {
+                  "tag": "review_with_teacher",
+                  "count": 5,
+                  "questions": [
+                    {
+                      "answer_id": "117172850",
+                      "part_id": "1012338a",
+                      "prompt": "Explain why the springs stretched longer.",
+                      "student_answer": "As the magnet is attracting the material in the plastic cup.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "118761808",
+                      "part_id": "1012168b",
+                      "prompt": "State another use of electromagnet.",
+                      "student_answer": "Magnetic locks for doors.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "117901524",
+                      "part_id": "1006623a",
+                      "prompt": "Study the following statements and put a tick (\u2713) in the correct box.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "117172640",
+                      "part_id": "1010693a",
+                      "prompt": "Based on Visa\u2019s results, label the parts by writing W, X, Y and Z in the boxes provided below.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "118270383",
+                      "part_id": "1012331a",
+                      "prompt": "Can this observation be used to conclude that bar N is a magnet? Explain why.",
+                      "student_answer": "No because it may also be a magnetic material. Only magnets can repel each other.",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "conceptual_gap",
+                  "count": 3,
+                  "questions": [
+                    {
+                      "answer_id": "117172850",
+                      "part_id": "1012338a",
+                      "prompt": "Explain why the springs stretched longer.",
+                      "student_answer": "As the magnet is attracting the material in the plastic cup.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "118761808",
+                      "part_id": "1012168b",
+                      "prompt": "State another use of electromagnet.",
+                      "student_answer": "Magnetic locks for doors.",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "118270383",
+                      "part_id": "1012331a",
+                      "prompt": "Can this observation be used to conclude that bar N is a magnet? Explain why.",
+                      "student_answer": "No because it may also be a magnetic material. Only magnets can repel each other.",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "blank_response",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "117901524",
+                      "part_id": "1006623a",
+                      "prompt": "Study the following statements and put a tick (\u2713) in the correct box.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "117172640",
+                      "part_id": "1010693a",
+                      "prompt": "Based on Visa\u2019s results, label the parts by writing W, X, Y and Z in the boxes provided below.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "partial_understanding",
+                  "count": 2,
+                  "questions": [
+                    {
+                      "answer_id": "117901524",
+                      "part_id": "1006623a",
+                      "prompt": "Study the following statements and put a tick (\u2713) in the correct box.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "117172640",
+                      "part_id": "1010693a",
+                      "prompt": "Based on Visa\u2019s results, label the parts by writing W, X, Y and Z in the boxes provided below.",
+                      "student_answer": "",
+                      "mark": 2.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 3.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 575,
-      "subject": "Science",
-      "topic": "Plants",
-      "subtopic": "Classify plants based on how they reproduce*",
-      "attempts_considered": 5,
-      "tag_counts": [
-        {
-          "tag": "conceptual_gap",
-          "count": 5
         },
         {
-          "tag": "review_with_teacher",
-          "count": 5
-        }
-      ],
-      "students": [
-        {
-          "student_id": 181246,
-          "tag_counts": [
+          "subject": "Science",
+          "topic": "Plants",
+          "skill": {
+            "label": "Proficient",
+            "accuracy": 56.2
+          },
+          "questions_attempted": 9,
+          "mistake_attempts": 5,
+          "subtopics": [
             {
-              "tag": "conceptual_gap",
-              "count": 4
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 4
-            }
-          ]
-        },
-        {
-          "student_id": 192153,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 1
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 554,
-      "subject": "Science",
-      "topic": "Reproduction in Humans",
-      "subtopic": "Understand and identify parts of male reproduction*",
-      "attempts_considered": 2,
-      "tag_counts": [
-        {
-          "tag": "blank_response",
-          "count": 1
-        },
-        {
-          "tag": "conceptual_gap",
-          "count": 2
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 2
-        }
-      ],
-      "students": [
-        {
-          "student_id": 191956,
-          "tag_counts": [
-            {
-              "tag": "blank_response",
-              "count": 1
-            },
-            {
-              "tag": "conceptual_gap",
-              "count": 2
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 573,
-      "subject": "Science",
-      "topic": "Reproduction in Plants",
-      "subtopic": "Characteristics of wind-pollinated flowers*",
-      "attempts_considered": 3,
-      "tag_counts": [
-        {
-          "tag": "conceptual_gap",
-          "count": 1
-        },
-        {
-          "tag": "partial_understanding",
-          "count": 2
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 3
-        }
-      ],
-      "students": [
-        {
-          "student_id": 191956,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 1
-            },
-            {
-              "tag": "partial_understanding",
-              "count": 2
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 548,
-      "subject": "Science",
-      "topic": "Respiratory Systems in Living Things",
-      "subtopic": "Compare how gaseous exchange takes place in living things",
-      "attempts_considered": 2,
-      "tag_counts": [
-        {
-          "tag": "conceptual_gap",
-          "count": 1
-        },
-        {
-          "tag": "partial_understanding",
-          "count": 1
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 2
-        }
-      ],
-      "students": [
-        {
-          "student_id": 191956,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 1
-            },
-            {
-              "tag": "partial_understanding",
-              "count": 1
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "subtopic_id": 547,
-      "subject": "Science",
-      "topic": "Water & the Water Cycle",
-      "subtopic": "Recognise how heat gain causes evaporation of liquid water",
-      "attempts_considered": 4,
-      "tag_counts": [
-        {
-          "tag": "conceptual_gap",
-          "count": 4
-        },
-        {
-          "tag": "review_with_teacher",
-          "count": 4
-        }
-      ],
-      "students": [
-        {
-          "student_id": 191956,
-          "tag_counts": [
-            {
-              "tag": "conceptual_gap",
-              "count": 4
-            },
-            {
-              "tag": "review_with_teacher",
-              "count": 4
+              "subtopic_id": 575,
+              "subtopic": "Identify plants based on their general characteristics.",
+              "attempt_count": 9,
+              "tags": [
+                {
+                  "tag": "conceptual_gap",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "108491290",
+                      "part_id": "99a",
+                      "prompt": "John compared the properties of four different plants in a table. Property Rose Lotus Hibiscus Orchid Does it have flowers? No Yes Yes Yes Does it live on land? Yes No Yes Yes Is it poisonous? Yes No No No",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108446273",
+                      "part_id": "432a",
+                      "prompt": "Animals get food by eating plants, animals or both. Green plants get food by __________. (1) making their own (2) taking it from the soil (3) taking it from the Sun (4) waiting for man to feed them",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113329951",
+                      "part_id": "93151a",
+                      "prompt": "Which of the following reproduces by spores? (1) Cactus (2) Mimosa plant (3) Moss (4) Water lotus",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "106941984",
+                      "part_id": "567c",
+                      "prompt": "Based on the flow chart, state one way in which B is different from C.",
+                      "student_answer": "One bear fruits while the other does not",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "review_with_teacher",
+                  "count": 4,
+                  "questions": [
+                    {
+                      "answer_id": "108491290",
+                      "part_id": "99a",
+                      "prompt": "John compared the properties of four different plants in a table. Property Rose Lotus Hibiscus Orchid Does it have flowers? No Yes Yes Yes Does it live on land? Yes No Yes Yes Is it poisonous? Yes No No No",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "108446273",
+                      "part_id": "432a",
+                      "prompt": "Animals get food by eating plants, animals or both. Green plants get food by __________. (1) making their own (2) taking it from the soil (3) taking it from the Sun (4) waiting for man to feed them",
+                      "student_answer": "C",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "113329951",
+                      "part_id": "93151a",
+                      "prompt": "Which of the following reproduces by spores? (1) Cactus (2) Mimosa plant (3) Moss (4) Water lotus",
+                      "student_answer": "A",
+                      "mark": 2.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    },
+                    {
+                      "answer_id": "106941984",
+                      "part_id": "567c",
+                      "prompt": "Based on the flow chart, state one way in which B is different from C.",
+                      "student_answer": "One bear fruits while the other does not",
+                      "mark": 1.0,
+                      "mark_awarded": 0.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                },
+                {
+                  "tag": "blank_response",
+                  "count": 1,
+                  "questions": [
+                    {
+                      "answer_id": "110828935",
+                      "part_id": "600b",
+                      "prompt": "The brightly lit lamp is now moved as shown below. Draw the plant in the box provided.",
+                      "student_answer": "",
+                      "mark": 1.0,
+                      "mark_awarded": 1.0,
+                      "student_score": 10.0,
+                      "is_mistake": true
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }

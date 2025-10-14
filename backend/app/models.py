@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from sqlalchemy import Column, ForeignKey, Integer, String, Table, Text, Float
+from sqlalchemy import Column, ForeignKey, Integer, String, Table, Text, Float, Boolean
 from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
@@ -58,6 +58,7 @@ class Attempt(Base):
     mark = Column(Float, nullable=False, default=0)
     mark_awarded = Column(Float, nullable=False, default=0)
     student_score = Column(Float, nullable=True)
+    is_mistake = Column(Boolean, nullable=False, default=False)
 
     student = relationship("Student", back_populates="attempts")
     question = relationship("Question", back_populates="attempts")

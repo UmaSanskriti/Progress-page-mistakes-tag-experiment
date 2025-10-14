@@ -30,7 +30,7 @@ def _normalise_value(value):
     return value
 
 
-def derive_tags(row: dict) -> Iterable[str]:
+def derive_tags(row: dict) -> set[str]:
     mark = float(row.get("mark") or 0)
     mark_awarded = float(row.get("mark_awarded") or 0)
     student_score = float(row.get("student_score") or 0)
@@ -58,6 +58,10 @@ def derive_tags(row: dict) -> Iterable[str]:
         tags.add("needs_revision")
 
     return tags
+
+
+def is_mistake_attempt(tags: Iterable[str]) -> bool:
+    return any(tag != "mastered" for tag in tags)
 
 
 def get_engine(database_url: str | None = None):
@@ -129,6 +133,8 @@ def _process_row(session: Session, row: dict, tag_entities: dict[str, MistakeTag
         session.add(question)
 
     attempt = session.get(Attempt, attempt_id)
+    tags = derive_tags(row)
+
     if attempt is None:
         attempt = Attempt(
             id=attempt_id,
@@ -139,6 +145,7 @@ def _process_row(session: Session, row: dict, tag_entities: dict[str, MistakeTag
             mark=float(row.get("mark") or 0),
             mark_awarded=float(row.get("mark_awarded") or 0),
             student_score=float(row.get("student_score") or 0),
+            is_mistake=is_mistake_attempt(tags),
         )
         session.add(attempt)
     else:
@@ -146,9 +153,10 @@ def _process_row(session: Session, row: dict, tag_entities: dict[str, MistakeTag
         attempt.mark = float(row.get("mark") or 0)
         attempt.mark_awarded = float(row.get("mark_awarded") or 0)
         attempt.student_score = float(row.get("student_score") or 0)
+        attempt.is_mistake = is_mistake_attempt(tags)
 
     attempt.tags.clear()
-    for tag_name in derive_tags(row):
+    for tag_name in tags:
         attempt.tags.append(tag_entities[tag_name])
 
     session.flush()

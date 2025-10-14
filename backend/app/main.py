@@ -75,6 +75,7 @@ def read_subtopic_tag_counts(
         .join(Attempt, Attempt.subtopic_id == Subtopic.id)
         .join(attempt_mistake_tags, attempt_mistake_tags.c.attempt_id == Attempt.id)
         .join(MistakeTag, MistakeTag.id == attempt_mistake_tags.c.mistake_tag_id)
+        .filter(Attempt.is_mistake.is_(True))
     )
 
     if tag:
@@ -142,6 +143,7 @@ def read_student_subtopic_tags(
         .join(Subtopic, Attempt.subtopic_id == Subtopic.id)
         .join(attempt_mistake_tags, attempt_mistake_tags.c.attempt_id == Attempt.id)
         .join(MistakeTag, MistakeTag.id == attempt_mistake_tags.c.mistake_tag_id)
+        .filter(Attempt.is_mistake.is_(True))
     )
 
     if subtopic:

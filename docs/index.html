@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Subtopic Mistake Tags – Three Student Sample</title>
+    <title>Student Topic Profiles</title>
     <style>
       :root {
         color-scheme: light;
@@ -19,46 +19,93 @@
       }
 
       header {
-        max-width: 960px;
-        margin: 0 auto 2rem;
-        text-align: center;
+        max-width: 1040px;
+        margin: 0 auto 2.5rem;
+        display: grid;
+        gap: 1.25rem;
       }
 
       h1 {
-        margin-bottom: 0.5rem;
+        margin: 0;
         font-size: clamp(2rem, 3.5vw, 2.75rem);
       }
 
       header p {
-        margin: 0.35rem 0;
+        margin: 0;
         color: #475569;
         font-size: 1rem;
       }
 
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+      }
+
+      label {
+        font-weight: 600;
+        color: #1e293b;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      select {
+        border-radius: 0.5rem;
+        border: 1px solid #cbd5f5;
+        padding: 0.5rem 0.75rem;
+        font-size: 1rem;
+        background: #ffffff;
+        color: inherit;
+        min-width: 8rem;
+      }
+
       main {
-        max-width: 960px;
+        max-width: 1040px;
         margin: 0 auto 4rem;
         display: grid;
         gap: 1.75rem;
       }
 
-      article {
+      .topic-card {
         background: #ffffff;
         border-radius: 1rem;
         box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
         padding: clamp(1.25rem, 3vw, 2rem);
+        display: grid;
+        gap: 1.5rem;
       }
 
-      article h2 {
-        margin-top: 0;
-        margin-bottom: 0.25rem;
-        font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+      .topic-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        justify-content: space-between;
+        align-items: flex-start;
       }
 
-      .subheading {
+      .topic-heading {
+        display: grid;
+        gap: 0.4rem;
+      }
+
+      .topic-heading h2 {
+        margin: 0;
+        font-size: clamp(1.5rem, 3vw, 1.9rem);
+      }
+
+      .topic-heading .subheading {
         margin: 0;
         color: #64748b;
         font-size: 0.95rem;
+      }
+
+      .topic-metrics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        align-items: center;
       }
 
       .metric {
@@ -68,91 +115,156 @@
         background: #e2e8f0;
         color: #334155;
         border-radius: 999px;
-        padding: 0.25rem 0.75rem;
+        padding: 0.35rem 0.8rem;
         font-size: 0.85rem;
-        margin: 0.75rem 0 1.25rem;
       }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 1.25rem;
-      }
-
-      thead {
-        background: #eff6ff;
-      }
-
-      th,
-      td {
-        padding: 0.6rem 0.75rem;
-        text-align: left;
-        font-size: 0.95rem;
-        border-bottom: 1px solid #e2e8f0;
-      }
-
-      th {
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-        font-size: 0.75rem;
-        color: #475569;
-      }
-
-      tbody tr:last-child td {
-        border-bottom: none;
-      }
-
-      .tag-pill {
+      .skill-chip {
         display: inline-flex;
         align-items: center;
         gap: 0.35rem;
+        border-radius: 999px;
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .skill-advanced {
+        background: rgba(22, 163, 74, 0.12);
+        color: #15803d;
+      }
+
+      .skill-proficient {
         background: rgba(59, 130, 246, 0.12);
         color: #1d4ed8;
-        border-radius: 999px;
-        padding: 0.2rem 0.65rem;
+      }
+
+      .skill-developing {
+        background: rgba(249, 115, 22, 0.12);
+        color: #c2410c;
+      }
+
+      .skill-no-data {
+        background: rgba(148, 163, 184, 0.2);
+        color: #475569;
+      }
+
+      .subtopic-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .subtopic-card {
+        background: #f8fafc;
+        border-radius: 0.85rem;
+        padding: 1.1rem clamp(1rem, 2vw, 1.5rem);
+        display: grid;
+        gap: 0.85rem;
+      }
+
+      .subtopic-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.85rem;
+        flex-wrap: wrap;
+        align-items: baseline;
+      }
+
+      .subtopic-title {
+        margin: 0;
+        font-size: 1.05rem;
+      }
+
+      .attempt-count {
+        margin: 0;
+        color: #475569;
         font-size: 0.85rem;
       }
 
-      .student-breakdown {
+      .tag-table {
         display: grid;
         gap: 0.75rem;
       }
 
-      .student-breakdown h3 {
-        margin: 0;
-        font-size: 1rem;
-        color: #334155;
-      }
-
-      .student-row {
+      .tag-row {
         display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-        align-items: flex-start;
-        background: #f1f5f9;
-        border-radius: 0.75rem;
-        padding: 0.75rem 0.85rem;
-        font-size: 0.9rem;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
       }
 
-      .student-label {
-        font-weight: 600;
+      .tag-button {
+        border: none;
+        border-radius: 999px;
+        background: rgba(59, 130, 246, 0.12);
+        color: #1d4ed8;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .tag-button:hover,
+      .tag-button:focus-visible {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 16px rgba(29, 78, 216, 0.15);
+        outline: none;
+      }
+
+      .tag-button.active {
+        background: #1d4ed8;
+        color: #ffffff;
+      }
+
+      .tag-count {
+        font-size: 0.85rem;
+        color: #334155;
+        min-width: 3rem;
+        text-align: right;
+      }
+
+      .question-list {
+        border-top: 1px solid #e2e8f0;
+        padding-top: 0.85rem;
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .question-heading {
+        margin: 0;
+        font-size: 0.95rem;
         color: #1e293b;
       }
 
-      .tag-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.4rem;
+      .question-card {
+        background: #ffffff;
+        border-radius: 0.75rem;
+        padding: 0.85rem 1rem;
+        box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.25);
       }
 
-      .tag-empty {
-        color: #64748b;
+      .question-card h4 {
+        margin: 0 0 0.45rem;
+        font-size: 0.95rem;
+        color: #1e293b;
+      }
+
+      .question-card p {
+        margin: 0.2rem 0;
+        font-size: 0.85rem;
+        color: #475569;
+      }
+
+      .empty-state {
+        margin: 0;
         font-style: italic;
+        color: #64748b;
+        font-size: 0.9rem;
       }
 
       footer {
-        max-width: 960px;
+        max-width: 1040px;
         margin: 3rem auto 0;
         color: #475569;
         font-size: 0.85rem;
@@ -164,49 +276,39 @@
           padding: 1.5rem 1rem 2.5rem;
         }
 
-        table,
-        thead,
-        tbody,
-        th,
-        td,
-        tr {
-          display: block;
+        .topic-header {
+          flex-direction: column;
+          align-items: flex-start;
         }
 
-        thead {
-          display: none;
+        .tag-row {
+          align-items: flex-start;
         }
 
-        tbody tr {
-          border: 1px solid #e2e8f0;
-          border-radius: 0.75rem;
-          padding: 0.75rem;
-          margin-bottom: 0.75rem;
-          background: #f8fafc;
-        }
-
-        tbody td {
-          border: none;
-          padding: 0.25rem 0;
-        }
-
-        tbody td::before {
-          content: attr(data-label) ": ";
-          font-weight: 600;
-          color: #475569;
+        .tag-count {
+          text-align: left;
         }
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>Subtopic Mistake Tags</h1>
-      <p id="student-summary">Loading student information…</p>
-      <p id="dataset-note">Analysing incorrect attempts only.</p>
+      <div>
+        <h1>Student topic profiles</h1>
+        <p id="student-summary">Loading student information…</p>
+        <p id="dataset-note">Preparing dataset insights.</p>
+      </div>
+      <div class="controls">
+        <label for="student-select">
+          Student ID
+          <select id="student-select" aria-label="Select student"></select>
+        </label>
+      </div>
     </header>
     <main id="content" aria-live="polite"></main>
     <footer>
-      The mistake tags reuse the existing taxonomy from <code>backend/app/ingest.py</code>.
+      Mistake tagging logic is shared with <code>backend/app/ingest.py</code>. Skill
+      levels are derived from the share of marks awarded per topic.
     </footer>
     <script>
       async function loadData() {
@@ -219,137 +321,278 @@
         return response.json();
       }
 
-      function createTagList(tagCounts) {
-        const container = document.createElement("div");
-        container.className = "tag-list";
-
-        if (!tagCounts || tagCounts.length === 0) {
-          const empty = document.createElement("span");
-          empty.className = "tag-empty";
-          empty.textContent = "No incorrect attempts recorded.";
-          container.appendChild(empty);
-          return container;
-        }
-
-        tagCounts
-          .slice()
-          .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag))
-          .forEach((entry) => {
-            const tag = document.createElement("span");
-            tag.className = "tag-pill";
-            tag.textContent = `${entry.tag.replaceAll("_", " ")} (${entry.count})`;
-            container.appendChild(tag);
-          });
-
-        return container;
+      function getSkillClass(label) {
+        const key = label.toLowerCase();
+        if (key.includes("advanced")) return "skill-advanced";
+        if (key.includes("proficient")) return "skill-proficient";
+        if (key.includes("develop")) return "skill-developing";
+        return "skill-no-data";
       }
 
-      function renderSubtopic(container, subtopic) {
-        const article = document.createElement("article");
-
-        const title = document.createElement("h2");
-        title.textContent = subtopic.subtopic;
-        article.appendChild(title);
-
-        const subheading = document.createElement("p");
-        subheading.className = "subheading";
-        subheading.textContent = `${subtopic.topic} • ${subtopic.subject}`;
-        article.appendChild(subheading);
-
-        const metric = document.createElement("div");
-        metric.className = "metric";
-        metric.textContent = `Incorrect attempts analysed: ${subtopic.attempts_considered}`;
-        article.appendChild(metric);
-
-        const table = document.createElement("table");
-        const thead = document.createElement("thead");
-        thead.innerHTML = "<tr><th>Mistake tag</th><th>Frequency</th></tr>";
-        table.appendChild(thead);
-
-        const tbody = document.createElement("tbody");
-        if (subtopic.tag_counts.length === 0) {
-          const emptyRow = document.createElement("tr");
-          const emptyCell = document.createElement("td");
-          emptyCell.colSpan = 2;
-          emptyCell.textContent = "No mistake tags recorded.";
-          emptyRow.appendChild(emptyCell);
-          tbody.appendChild(emptyRow);
-        } else {
-          subtopic.tag_counts
-            .slice()
-            .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag))
-            .forEach((entry) => {
-              const row = document.createElement("tr");
-
-              const tagCell = document.createElement("td");
-              tagCell.dataset.label = "Mistake tag";
-              const tagSpan = document.createElement("span");
-              tagSpan.className = "tag-pill";
-              tagSpan.textContent = entry.tag.replaceAll("_", " ");
-              tagCell.appendChild(tagSpan);
-
-              const countCell = document.createElement("td");
-              countCell.dataset.label = "Frequency";
-              countCell.textContent = entry.count;
-
-              row.appendChild(tagCell);
-              row.appendChild(countCell);
-              tbody.appendChild(row);
-            });
+      function renderQuestionList(container, tagEntry, subtopicName) {
+        container.innerHTML = "";
+        if (!tagEntry.questions || tagEntry.questions.length === 0) {
+          const empty = document.createElement("p");
+          empty.className = "empty-state";
+          empty.textContent = "No individual questions are linked to this tag.";
+          container.appendChild(empty);
+          return;
         }
-        table.appendChild(tbody);
-        article.appendChild(table);
 
-        const studentSection = document.createElement("section");
-        studentSection.className = "student-breakdown";
+        const heading = document.createElement("p");
+        heading.className = "question-heading";
+        heading.textContent = `Questions tagged as “${tagEntry.tag.replaceAll("_", " ")}" in ${subtopicName}`;
+        container.appendChild(heading);
 
-        const studentHeading = document.createElement("h3");
-        studentHeading.textContent = "Student mistake tag breakdown";
-        studentSection.appendChild(studentHeading);
+        tagEntry.questions.forEach((question, index) => {
+          const card = document.createElement("div");
+          card.className = "question-card";
 
-        subtopic.students.forEach((student) => {
+          const title = document.createElement("h4");
+          const reference = question.answer_id || question.part_id || index + 1;
+          title.textContent = `Attempt ${reference}`;
+          card.appendChild(title);
+
+          if (question.prompt) {
+            const prompt = document.createElement("p");
+            prompt.textContent = question.prompt;
+            card.appendChild(prompt);
+          }
+
+          if (question.student_answer) {
+            const answer = document.createElement("p");
+            answer.innerHTML = `<strong>Student answer:</strong> ${question.student_answer}`;
+            card.appendChild(answer);
+          }
+
+          const marks = document.createElement("p");
+          marks.innerHTML = `<strong>Marks:</strong> ${question.mark_awarded} / ${question.mark}`;
+          card.appendChild(marks);
+
+          const score = document.createElement("p");
+          score.innerHTML = `<strong>Student score:</strong> ${question.student_score}`;
+          card.appendChild(score);
+
+          container.appendChild(card);
+        });
+      }
+
+      function renderSubtopic(subtopic) {
+        const section = document.createElement("section");
+        section.className = "subtopic-card";
+
+        const header = document.createElement("div");
+        header.className = "subtopic-header";
+
+        const title = document.createElement("h3");
+        title.className = "subtopic-title";
+        title.textContent = subtopic.subtopic;
+        header.appendChild(title);
+
+        const attempts = document.createElement("p");
+        attempts.className = "attempt-count";
+        attempts.textContent = `${subtopic.attempt_count} question${
+          subtopic.attempt_count === 1 ? "" : "s"
+        } attempted`;
+        header.appendChild(attempts);
+
+        section.appendChild(header);
+
+        const tagTable = document.createElement("div");
+        tagTable.className = "tag-table";
+
+        if (!subtopic.tags || subtopic.tags.length === 0) {
+          const empty = document.createElement("p");
+          empty.className = "empty-state";
+          empty.textContent = "No mistake tags recorded for this subtopic.";
+          section.appendChild(empty);
+          return section;
+        }
+
+        const questionList = document.createElement("div");
+        questionList.className = "question-list";
+        questionList.hidden = true;
+
+        subtopic.tags.forEach((tagEntry) => {
           const row = document.createElement("div");
-          row.className = "student-row";
-          const idSpan = document.createElement("span");
-          idSpan.className = "student-label";
-          idSpan.textContent = `Student ${student.student_id}`;
-          row.appendChild(idSpan);
+          row.className = "tag-row";
 
-          row.appendChild(createTagList(student.tag_counts));
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "tag-button";
+          button.textContent = tagEntry.tag.replaceAll("_", " ");
 
-          studentSection.appendChild(row);
+          button.addEventListener("click", () => {
+            const alreadyActive = button.classList.contains("active");
+            section
+              .querySelectorAll(".tag-button.active")
+              .forEach((activeButton) => activeButton.classList.remove("active"));
+
+            if (alreadyActive) {
+              questionList.hidden = true;
+              questionList.innerHTML = "";
+              questionList.setAttribute("aria-hidden", "true");
+              return;
+            }
+
+            button.classList.add("active");
+            renderQuestionList(questionList, tagEntry, subtopic.subtopic);
+            questionList.hidden = false;
+            questionList.setAttribute("aria-hidden", "false");
+          });
+
+          const count = document.createElement("span");
+          count.className = "tag-count";
+          count.textContent = `${tagEntry.count} mistake${tagEntry.count === 1 ? "" : "s"}`;
+
+          row.appendChild(button);
+          row.appendChild(count);
+          tagTable.appendChild(row);
         });
 
-        article.appendChild(studentSection);
-        container.appendChild(article);
+        section.appendChild(tagTable);
+        section.appendChild(questionList);
+
+        return section;
+      }
+
+      function renderTopic(topic) {
+        const article = document.createElement("article");
+        article.className = "topic-card";
+
+        const header = document.createElement("div");
+        header.className = "topic-header";
+
+        const headingGroup = document.createElement("div");
+        headingGroup.className = "topic-heading";
+
+        const title = document.createElement("h2");
+        title.textContent = topic.topic;
+        headingGroup.appendChild(title);
+
+        const subject = document.createElement("p");
+        subject.className = "subheading";
+        subject.textContent = topic.subject;
+        headingGroup.appendChild(subject);
+
+        header.appendChild(headingGroup);
+
+        const metrics = document.createElement("div");
+        metrics.className = "topic-metrics";
+
+        const skillLabel = topic.skill?.label ?? "No data";
+        const skillChip = document.createElement("span");
+        skillChip.className = `skill-chip ${getSkillClass(skillLabel)}`;
+        const accuracy = topic.skill?.accuracy;
+        skillChip.textContent = accuracy ? `${skillLabel} · ${accuracy}%` : skillLabel;
+        metrics.appendChild(skillChip);
+
+        const attempts = document.createElement("span");
+        attempts.className = "metric";
+        attempts.textContent = `${topic.questions_attempted} question${
+          topic.questions_attempted === 1 ? "" : "s"
+        } attempted`;
+        metrics.appendChild(attempts);
+
+        const mistakes = document.createElement("span");
+        mistakes.className = "metric";
+        mistakes.textContent = `${topic.mistake_attempts} mistake${
+          topic.mistake_attempts === 1 ? "" : "s"
+        } recorded`;
+        metrics.appendChild(mistakes);
+
+        header.appendChild(metrics);
+        article.appendChild(header);
+
+        const subtopicGrid = document.createElement("div");
+        subtopicGrid.className = "subtopic-grid";
+
+        if (!topic.subtopics || topic.subtopics.length === 0) {
+          const empty = document.createElement("p");
+          empty.className = "empty-state";
+          empty.textContent = "No subtopics available for this topic.";
+          subtopicGrid.appendChild(empty);
+        } else {
+          topic.subtopics.forEach((subtopic) => {
+            subtopicGrid.appendChild(renderSubtopic(subtopic));
+          });
+        }
+
+        article.appendChild(subtopicGrid);
+        return article;
+      }
+
+      function renderStudentProfile(student, container) {
+        container.innerHTML = "";
+
+        if (!student || !student.topics || student.topics.length === 0) {
+          const empty = document.createElement("p");
+          empty.className = "empty-state";
+          empty.textContent = "No attempts found for this student.";
+          container.appendChild(empty);
+          return;
+        }
+
+        student.topics.forEach((topic) => {
+          container.appendChild(renderTopic(topic));
+        });
       }
 
       async function init() {
         const main = document.getElementById("content");
         const studentSummary = document.getElementById("student-summary");
         const datasetNote = document.getElementById("dataset-note");
+        const select = document.getElementById("student-select");
 
         try {
           const data = await loadData();
-          studentSummary.textContent = `Selected students: ${data.selected_students
-            .map((id) => `#${id}`)
-            .join(", ")}`;
 
           const excluded = data.students_present.filter(
             (id) => !data.selected_students.includes(id)
           );
           if (excluded.length > 0) {
-            datasetNote.textContent = `Analysing incorrect attempts only. ${excluded.length} other students were ignored.`;
+            datasetNote.textContent = `${excluded.length} other students were excluded from this sample.`;
+          } else {
+            datasetNote.textContent = "Sample focuses on three anonymised students.";
           }
 
-          if (!data.subtopics || data.subtopics.length === 0) {
-            const emptyState = document.createElement("p");
-            emptyState.textContent = "No mistake tag data available for the selected students.";
-            main.appendChild(emptyState);
-            return;
-          }
+          select.innerHTML = "";
+          data.selected_students.forEach((id) => {
+            const option = document.createElement("option");
+            option.value = id;
+            option.textContent = id;
+            select.appendChild(option);
+          });
 
-          data.subtopics.forEach((subtopic) => renderSubtopic(main, subtopic));
+          const byId = new Map(
+            data.students.map((student) => [String(student.student_id), student])
+          );
+
+          const updateStudent = (id) => {
+            const student = byId.get(String(id));
+            if (!student) {
+              studentSummary.textContent = `Student #${id} has no recorded attempts.`;
+              renderStudentProfile(null, main);
+              return;
+            }
+
+            const topicCount = student.topics.length;
+            const totalAttempts = student.topics.reduce(
+              (sum, topic) => sum + (topic.questions_attempted ?? 0),
+              0
+            );
+            studentSummary.textContent = `Profiling student #${id} across ${topicCount} topic${
+              topicCount === 1 ? "" : "s"
+            } (${totalAttempts} attempt${totalAttempts === 1 ? "" : "s"}).`;
+            renderStudentProfile(student, main);
+          };
+
+          select.addEventListener("change", (event) => {
+            updateStudent(event.target.value);
+          });
+
+          const defaultStudent = select.value || data.selected_students[0];
+          updateStudent(defaultStudent);
         } catch (error) {
           studentSummary.textContent = "Unable to load student information.";
           datasetNote.textContent = error instanceof Error ? error.message : String(error);
