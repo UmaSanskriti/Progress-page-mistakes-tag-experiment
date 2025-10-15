@@ -6,6 +6,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 import pandas as pd
+import pytest
 from sqlalchemy import create_engine, func, select
 from sqlalchemy.orm import Session
 
@@ -15,10 +16,32 @@ from backend.app.models import AttemptRecord
 DATASET_PATH = Path(__file__).resolve().parents[1] / "Dataset - Progress page test - Sheet1.csv"
 
 
-def test_ingest_preserves_csv_and_mistake_flags(tmp_path):
+class StubCategoryClient:
+    def generate_category(
+        self,
+        *,
+        question: str,
+        reference_answer: str,
+        student_answer: str,
+        mark_available: float,
+        mark_awarded: float,
+    ) -> str:
+        if mark_awarded <= 0:
+            return "Concept Error"
+        if mark_awarded < mark_available:
+            return "Partial Understanding"
+        return "General Error"
+
+
+@pytest.fixture
+def stub_category_client():
+    return StubCategoryClient()
+
+
+def test_ingest_preserves_csv_and_mistake_flags(tmp_path, stub_category_client):
     db_url = f"sqlite:///{tmp_path / 'test.db'}"
 
-    ingest_csv(DATASET_PATH, database_url=db_url)
+    ingest_csv(DATASET_PATH, database_url=db_url, category_client=stub_category_client)
 
     engine = create_engine(db_url, future=True)
     df = pd.read_csv(DATASET_PATH, dtype=str, keep_default_na=False)
@@ -56,17 +79,19 @@ def test_ingest_preserves_csv_and_mistake_flags(tmp_path):
             for column in csv_columns:
                 assert getattr(record, column) == csv_data[column]
 
-            expected_flag, expected_category = classify_mistake(csv_data)
+            expected_flag, expected_category = classify_mistake(
+                csv_data, category_client=stub_category_client
+            )
             assert record.is_mistake == expected_flag
             assert record.mistake_category == expected_category
             if record.is_mistake == 0:
                 assert record.mistake_category == "null"
 
 
-def test_attempt_lookup_filters(tmp_path):
+def test_attempt_lookup_filters(tmp_path, stub_category_client):
     db_url = f"sqlite:///{tmp_path / 'test.db'}"
 
-    ingest_csv(DATASET_PATH, database_url=db_url)
+    ingest_csv(DATASET_PATH, database_url=db_url, category_client=stub_category_client)
 
     engine = create_engine(db_url, future=True)
 

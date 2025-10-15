@@ -311,6 +311,8 @@
         border-radius: 0.75rem;
         padding: 0.85rem 1rem;
         box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.25);
+        display: grid;
+        gap: 0.65rem;
       }
 
       .question-card h4 {
@@ -329,6 +331,25 @@
         margin-top: 0.5rem;
         display: grid;
         gap: 0.25rem;
+      }
+
+      .mistake-category-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        align-self: flex-start;
+        border-radius: 999px;
+        background: rgba(59, 130, 246, 0.12);
+        color: #1d4ed8;
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 0.25rem 0.75rem;
+      }
+
+      .mistake-category-pill strong {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #1e3a8a;
       }
 
       .empty-state {
@@ -417,7 +438,16 @@
         }
         return raw;
       }
-    
+
+      function deriveCategoryLabel(record) {
+        const raw = String(record?.mistake_category ?? "").trim();
+        if (!raw || raw.toLowerCase() === "null") {
+          return "Uncategorised";
+        }
+        const normalised = raw.replace(/\s+/g, " ").trim();
+        return normalised || "Uncategorised";
+      }
+
       function classifySkill(accuracy) {
         if (accuracy === null || Number.isNaN(accuracy)) {
           return { label: "No score data", className: "skill-no-data", accuracy: null };
@@ -434,7 +464,13 @@
         return { label: "Needs Support", className: "skill-support", accuracy };
       }
     
-      function buildQuestion(record, subjectName, topicName, subtopicName) {
+      function buildQuestion(
+        record,
+        subjectName,
+        topicName,
+        subtopicName,
+        mistakeCategory = ""
+      ) {
         const promptText =
           htmlToText(record.q_text) ||
           htmlToText(record.q_text1) ||
@@ -456,6 +492,7 @@
           subtopicName,
           subjectName,
           studentScore: record.student_score ?? "",
+          mistakeCategory: mistakeCategory || "",
         };
       }
     
@@ -505,25 +542,31 @@
     
           subtopicEntry.attemptCount += 1;
     
-          const question = buildQuestion(record, subjectName, topicName, subtopicName);
-    
           if (isMistake) {
             subtopicEntry.mistakeCount += 1;
-            const rawCategory = (record.mistake_category ?? "").trim() || "Uncategorised";
-            const normalized = rawCategory.toLowerCase() === "null" ? "Uncategorised" : rawCategory;
-    
-            let tagEntry = subtopicEntry.tags.get(normalized);
+            const categoryLabel = deriveCategoryLabel(record);
+            const categoryKey = categoryLabel.toLowerCase();
+
+            const question = buildQuestion(
+              record,
+              subjectName,
+              topicName,
+              subtopicName,
+              categoryLabel
+            );
+
+            let tagEntry = subtopicEntry.tags.get(categoryKey);
             if (!tagEntry) {
-              tagEntry = { tag: normalized, count: 0, questions: [] };
-              subtopicEntry.tags.set(normalized, tagEntry);
+              tagEntry = { tag: categoryLabel, count: 0, questions: [] };
+              subtopicEntry.tags.set(categoryKey, tagEntry);
             }
             tagEntry.count += 1;
             tagEntry.questions.push(question);
-    
-            let globalEntry = globalTags.get(normalized);
+
+            let globalEntry = globalTags.get(categoryKey);
             if (!globalEntry) {
-              globalEntry = { tag: normalized, count: 0, questions: [] };
-              globalTags.set(normalized, globalEntry);
+              globalEntry = { tag: categoryLabel, count: 0, questions: [] };
+              globalTags.set(categoryKey, globalEntry);
             }
             globalEntry.count += 1;
             globalEntry.questions.push(question);
@@ -668,7 +711,7 @@
         tagEntry.questions.forEach((question, index) => {
           const card = document.createElement("div");
           card.className = "question-card";
-    
+
           const title = document.createElement("h4");
           const parts = [];
           if (question.attemptId) parts.push(`#${question.attemptId}`);
@@ -676,7 +719,21 @@
           const attemptLabel = parts.length > 0 ? parts.join(" · ") : index + 1;
           title.textContent = `Attempt ${attemptLabel}`;
           card.appendChild(title);
-    
+
+          if (question.mistakeCategory) {
+            const category = document.createElement("span");
+            category.className = "mistake-category-pill";
+            const label = document.createElement("strong");
+            label.textContent = "Category:";
+            category.appendChild(label);
+            category.append(` ${question.mistakeCategory}`);
+            category.setAttribute(
+              "aria-label",
+              `Mistake category: ${question.mistakeCategory}`
+            );
+            card.appendChild(category);
+          }
+
           const prompt = document.createElement("p");
           const promptLabel = document.createElement("strong");
           promptLabel.textContent = "Question:";
