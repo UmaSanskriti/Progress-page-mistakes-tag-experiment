@@ -26,7 +26,12 @@ app.add_middleware(
 
 Base.metadata.create_all(bind=engine)
 
-FRONTEND_DIR = Path(__file__).resolve().parents[1] / "frontend"
+FRONTEND_DIR = Path(__file__).resolve().parents[2] / "frontend"
+if not FRONTEND_DIR.exists():
+    # Support running the app from within the backend package as well.
+    fallback_dir = Path(__file__).resolve().parent / "frontend"
+    if fallback_dir.exists():
+        FRONTEND_DIR = fallback_dir
 
 if FRONTEND_DIR.exists():
     app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
