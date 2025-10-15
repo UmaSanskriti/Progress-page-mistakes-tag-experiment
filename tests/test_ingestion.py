@@ -1,79 +1,89 @@
 from pathlib import Path
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 import pandas as pd
 from sqlalchemy import create_engine, func, select
 from sqlalchemy.orm import Session
 
-from backend.app.ingest import TAG_DEFINITIONS, derive_tags, ingest_csv
-from backend.app.models import Attempt, MistakeTag, Subtopic
+from backend.app.ingest import classify_mistake, ingest_csv
+from backend.app.models import AttemptRecord
 
 DATASET_PATH = Path(__file__).resolve().parents[1] / "Dataset - Progress page test - Sheet1.csv"
 
 
-def test_ingest_populates_expected_counts(tmp_path):
+def test_ingest_preserves_csv_and_mistake_flags(tmp_path):
     db_url = f"sqlite:///{tmp_path / 'test.db'}"
 
     ingest_csv(DATASET_PATH, database_url=db_url)
 
     engine = create_engine(db_url, future=True)
-    df = pd.read_csv(DATASET_PATH)
+    df = pd.read_csv(DATASET_PATH, dtype=str, keep_default_na=False)
 
     with Session(engine) as session:
-        attempt_total = session.scalar(select(func.count(Attempt.id)))
-        assert attempt_total == len(df.index)
+        stored_count = session.scalar(select(func.count()).select_from(AttemptRecord))
+        assert stored_count == len(df.index)
 
-        tag_names = set(session.scalars(select(MistakeTag.name)))
-        assert tag_names == set(TAG_DEFINITIONS.keys())
+        records = session.query(AttemptRecord).all()
+        record_map = {(record.answer_id, record.kid, record.part_id): record for record in records}
 
-        expected_counts: dict[tuple[str, str], int] = {}
-        for record in df.to_dict("records"):
-            subtopic_name = str(record["description"])
-            for tag in derive_tags(record):
-                expected_counts[(subtopic_name, tag)] = expected_counts.get((subtopic_name, tag), 0) + 1
+        csv_columns = [
+            "student_id",
+            "subject_id",
+            "subject_name",
+            "name",
+            "id",
+            "description",
+            "kid",
+            "answer_id",
+            "part_id",
+            "q_text",
+            "q_image",
+            "q_text1",
+            "answer",
+            "mark",
+            "mark_awarded",
+            "student_score",
+        ]
 
-        rows = list(
-            session.execute(
-            select(Subtopic.name, MistakeTag.name, func.count(Attempt.id))
-            .join(Attempt, Attempt.subtopic_id == Subtopic.id)
-            .join(Attempt.tags)
-            .group_by(Subtopic.name, MistakeTag.name)
-        )
-        )
+        for _, csv_row in df.iterrows():
+            csv_data = csv_row.to_dict()
+            key = (csv_data["answer_id"], csv_data["kid"], csv_data["part_id"])
+            record = record_map[key]
+            for column in csv_columns:
+                assert getattr(record, column) == csv_data[column]
 
-        for subtopic_name, tag_name, count in rows:
-            assert expected_counts[(subtopic_name, tag_name)] == count
-
-        # Ensure every expected combination exists in the database
-        db_pairs = {(row[0], row[1]) for row in rows}
-        assert db_pairs == set(expected_counts.keys())
+            expected_flag, expected_category = classify_mistake(csv_data)
+            assert record.is_mistake == expected_flag
+            assert record.mistake_category == expected_category
+            if record.is_mistake == 0:
+                assert record.mistake_category == "null"
 
 
-def test_student_subtopic_tags_match_expected(tmp_path):
+def test_attempt_lookup_filters(tmp_path):
     db_url = f"sqlite:///{tmp_path / 'test.db'}"
 
     ingest_csv(DATASET_PATH, database_url=db_url)
 
     engine = create_engine(db_url, future=True)
-    df = pd.read_csv(DATASET_PATH)
 
     with Session(engine) as session:
-        expected: dict[tuple[int, str], set[str]] = {}
-        for record in df.to_dict("records"):
-            student_id = int(record["student_id"])
-            subtopic_name = str(record["description"])
-            key = (student_id, subtopic_name)
-            expected.setdefault(key, set()).update(derive_tags(record))
+        any_record = session.query(AttemptRecord).first()
+        assert any_record is not None
 
-        rows = list(
-            session.execute(
-                select(Attempt.student_id, Subtopic.name, MistakeTag.name)
-                .join(Subtopic, Attempt.subtopic_id == Subtopic.id)
-                .join(Attempt.tags)
-            )
+        student_records = (
+            session.query(AttemptRecord)
+            .filter(AttemptRecord.student_id == any_record.student_id)
+            .all()
         )
+        assert all(record.student_id == any_record.student_id for record in student_records)
 
-        actual: dict[tuple[int, str], set[str]] = {}
-        for student_id, subtopic_name, tag_name in rows:
-            actual.setdefault((student_id, subtopic_name), set()).add(tag_name)
-
-        assert actual == expected
+        mistake_records = (
+            session.query(AttemptRecord)
+            .filter(AttemptRecord.is_mistake == 1)
+            .all()
+        )
+        assert all(record.is_mistake == 1 for record in mistake_records)
